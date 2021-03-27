@@ -58,12 +58,20 @@
 
   <div class="map-overlay top">
     <div class="map-overlay-inner">
-      <label>Circle opacity: <span id="opacity-slider-value">20%</span></label>
-      <input id="opacity-slider" type="range" min="0" max="100" step="0" value="20">
+      <label>Pub opacity: <span id="pub-opacity-slider-value">20%</span></label>
+      <input id="pub-opacity-slider" type="range" min="0" max="100" step="0" value="20">
     </div>
     <div class="map-overlay-inner">
-      <label>Circle radius: <span id="radius-slider-value">250</span></label>
-      <input id="radius-slider" type="range" min="0" max="2000" step="0" value="200">
+      <label>Pub proximity: <span id="pub-radius-slider-value">250 meters</span></label>
+      <input id="pub-radius-slider" type="range" min="0" max="2000" step="0" value="200">
+    </div>
+    <div class="map-overlay-inner">
+      <label>Station opacity: <span id="rail-opacity-slider-value">20%</span></label>
+      <input id="rail-opacity-slider" type="range" min="0" max="100" step="0" value="20">
+    </div>
+    <div class="map-overlay-inner">
+      <label>Station proximity: <span id="rail-radius-slider-value">500 meters</span></label>
+      <input id="rail-radius-slider" type="range" min="0" max="2000" step="0" value="500">
     </div>
   </div>
  
@@ -141,7 +149,7 @@
         );
   
         // Value indicator
-        radiusSliderValue.textContent = e.target.value ;
+        radiusSliderValue.textContent = e.target.value + "meters" ;
       });
 
     }
@@ -151,12 +159,23 @@
       addLayerFromSourceWithListeners(
         map,
         "pubs",
-        "./centroids.geojson",
-        'rgb(0, 255, 0)',
-        document.getElementById('opacity-slider'),
-        document.getElementById('opacity-slider-value'),
-        document.getElementById('radius-slider'),
-        document.getElementById('radius-slider-value')
+        "./pubCentroids.geojson",
+        'rgb(238, 175, 0)',
+        document.getElementById('pub-opacity-slider'),
+        document.getElementById('pub-opacity-slider-value'),
+        document.getElementById('pub-radius-slider'),
+        document.getElementById('pub-radius-slider-value')
+        )
+
+      addLayerFromSourceWithListeners(
+        map,
+        "rail",
+        "./railCentroids.geojson",
+        'rgb(254, 0, 0)',
+        document.getElementById('rail-opacity-slider'),
+        document.getElementById('rail-opacity-slider-value'),
+        document.getElementById('rail-radius-slider'),
+        document.getElementById('rail-radius-slider-value')
         )
 
     });
