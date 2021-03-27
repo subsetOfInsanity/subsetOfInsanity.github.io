@@ -1,0 +1,28 @@
+Exporting layers:
+Using Overpass api: https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Overpass_QL_Basics
+
+Pubs query:  Run in Overpass-turbo to export as geojson
+
+(node
+  [amenity=pub]
+  (51.3276,-0.2369,
+    51.5173,0.1559);
+way
+  [amenity=pub]
+  (51.3276,-0.2369,
+    51.5173,0.1559);
+rel
+  [amenity=pub]
+  (51.3276,-0.2369,
+    51.5173,0.1559);
+);
+(._;>;);
+out;
+
+Need to use geopandas to convert them all to points before importing to layer?
+
+
+Train station query: same as above, just change the tags
+
+Parks query:  May be able to use the above strategy, but will need to tweak opacity since the bounding points of the parks build on each other.
+    leisure=park

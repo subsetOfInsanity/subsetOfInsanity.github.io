@@ -1,1 +1,169 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+</head>
+<body>
+  <div id='map'></div>
+
+  <style>
+    .map-overlay {
+      font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      position: absolute;
+      width: 25%;
+      top: 0;
+      left: 0;
+      padding: 10px;
+    }
+
+    .map-overlay .map-overlay-inner {
+      background-color: #fff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .map-overlay label {
+      display: block;
+      margin: 0 0 10px;
+    }
+
+    .map-overlay input {
+      background-color: transparent;
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      margin: 0;
+      cursor: ew-resize;
+    }
+  </style>
+
+  <div class="map-overlay top">
+    <div class="map-overlay-inner">
+      <label>Circle opacity: <span id="opacity-slider-value">20%</span></label>
+      <input id="opacity-slider" type="range" min="0" max="100" step="0" value="20">
+    </div>
+    <div class="map-overlay-inner">
+      <label>Circle radius: <span id="radius-slider-value">250</span></label>
+      <input id="radius-slider" type="range" min="0" max="2000" step="0" value="200">
+    </div>
+  </div>
+ 
+
+  <script>
+
+    const metersToPixelsAtMaxZoom = (meters, latitude) =>
+      meters / 0.004665 / Math.cos(latitude * Math.PI / 180);
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3Vic2V0b2ZpbnNhbml0eSIsImEiOiJja20yYXYxZWczNG5jMndwMzg5cWtubXc4In0.cVmPhSzqLjcpvQgwpAkiuA';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [
+          -0.048398,
+          51.4422284
+      ],
+      zoom: 15
+    });
+
+    function addLayerFromSourceWithListeners(map, name, sourceFile, colour, opacitySlider, opacitySliderValue, radiusSlider, radiusSliderValue) {
+
+      var layerName = name + '-point'
+      var initialOpacity = opacitySlider.value
+      var initialRadius = radiusSlider.value
+
+      map.addSource(name, {
+        type: 'geojson',
+        data: sourceFile
+      });
+
+      //add circle layer
+      map.addLayer({
+        id: layerName,
+        type: 'circle',
+        source: name,
+        minzoom: 10,
+        paint: {
+          //keep diameter of the circle at a distance in meters.
+          'circle-radius': {
+            stops: [
+              [0,0],
+              [24, metersToPixelsAtMaxZoom(initialRadius, 51.44)]
+            ],
+            base: 2
+          },
+          'circle-color': colour,
+          'circle-stroke-width': 0,
+          'circle-opacity': parseInt(initialOpacity, 10) / 100
+        }
+      }, 'waterway-label');
+
+      opacitySlider.addEventListener('input', function (e) {
+        map.setPaintProperty(
+          layerName,
+          'circle-opacity',
+          parseInt(e.target.value, 10) / 100
+        );
+  
+        // Value indicator
+        opacitySliderValue.textContent = e.target.value + '%';
+      });
+
+      radiusSlider.addEventListener('input', function (e) {
+        map.setPaintProperty(
+          layerName,
+          'circle-radius',
+          {
+            stops: [
+              [0,0],
+              [24, metersToPixelsAtMaxZoom(parseInt(e.target.value, 10), 51.44)]
+            ],
+            base: 2
+          }
+        );
+  
+        // Value indicator
+        radiusSliderValue.textContent = e.target.value ;
+      });
+
+    }
+ 
+    map.on('load', function() {
+
+      addLayerFromSourceWithListeners(
+        map,
+        "pubs",
+        "./centroids.geojson",
+        'rgb(0, 255, 0)',
+        document.getElementById('opacity-slider'),
+        document.getElementById('opacity-slider-value'),
+        document.getElementById('radius-slider'),
+        document.getElementById('radius-slider-value')
+        )
+
+    });
+
+
+  </script>
+</body>
+</html>
+
+
