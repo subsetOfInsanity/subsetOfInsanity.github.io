@@ -73,6 +73,14 @@
       <label>Station proximity: <span id="rail-radius-slider-value">500 meters</span></label>
       <input id="rail-radius-slider" type="range" min="0" max="2000" step="0" value="500">
     </div>
+    <div class="map-overlay-inner">
+      <label>Shop opacity: <span id="shop-opacity-slider-value">20%</span></label>
+      <input id="shop-opacity-slider" type="range" min="0" max="100" step="0" value="20">
+    </div>
+    <div class="map-overlay-inner">
+      <label>Shop proximity: <span id="shop-radius-slider-value">500 meters</span></label>
+      <input id="shop-radius-slider" type="range" min="0" max="2000" step="0" value="500">
+    </div>
   </div>
  
 
@@ -165,7 +173,7 @@
         document.getElementById('pub-opacity-slider-value'),
         document.getElementById('pub-radius-slider'),
         document.getElementById('pub-radius-slider-value')
-        )
+        );
 
       addLayerFromSourceWithListeners(
         map,
@@ -176,7 +184,18 @@
         document.getElementById('rail-opacity-slider-value'),
         document.getElementById('rail-radius-slider'),
         document.getElementById('rail-radius-slider-value')
-        )
+        );
+
+      addLayerFromSourceWithListeners(
+        map,
+        "shops",
+        "./shopsCentroids.geojson",
+        'rgb(0, 0, 254)',
+        document.getElementById('shop-opacity-slider'),
+        document.getElementById('shop-opacity-slider-value'),
+        document.getElementById('shop-radius-slider'),
+        document.getElementById('shop-radius-slider-value')
+        );
 
     });
 

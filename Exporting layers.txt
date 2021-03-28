@@ -24,10 +24,10 @@ Need to use geopandas to convert them all to points before importing to layer?
 
 Train station query: same as above, just change the tags
   railway=stop
-  
-
 
 Shop:
+  shop=supermarket
+  brand~
 
 Parks query:
   May be able to use the above strategy, but will need to tweak opacity since the bounding points of the parks build on each other.
