@@ -27,12 +27,12 @@ Train station query: same as above, just change the tags
 
 Shop:
 (
-  node[shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
-  node[shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
-  way [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
-  way [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
-  rel [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
-  rel [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
+  node[shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
+  node[shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
+  way [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
+  way [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
+  rel [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
+  rel [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
 );
 (._;>;);
 out;
@@ -43,6 +43,13 @@ Parks query:
   Can we do it with entrances?
     leisure=park
 
+(
+  node[leisure=park]({{bbox}});
+  way [leisure=park]({{bbox}});
+  rel [leisure=park]({{bbox}});
+);
+(._;>;);
+out;
 
 
 

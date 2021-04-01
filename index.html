@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title></title>
+    <title>House Hunt</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <script src='osmtogeojson.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
     <style>
       body {
@@ -81,6 +82,14 @@
       <label>Shop proximity: <span id="shop-radius-slider-value">500 meters</span></label>
       <input id="shop-radius-slider" type="range" min="0" max="2000" step="0" value="500">
     </div>
+    <div class="map-overlay-inner">
+      <label>Park opacity: <span id="park-opacity-slider-value">20%</span></label>
+      <input id="park-opacity-slider" type="range" min="0" max="100" step="0" value="20">
+    </div>
+    <div class="map-overlay-inner">
+      <label>Park proximity: <span id="park-radius-slider-value">500 meters</span></label>
+      <input id="park-radius-slider" type="range" min="0" max="2000" step="0" value="500">
+    </div>
   </div>
  
 
@@ -105,6 +114,8 @@
       var layerName = name + '-point'
       var initialOpacity = opacitySlider.value
       var initialRadius = radiusSlider.value
+
+      var osmData = 
 
       map.addSource(name, {
         type: 'geojson',
@@ -195,6 +206,17 @@
         document.getElementById('shop-opacity-slider-value'),
         document.getElementById('shop-radius-slider'),
         document.getElementById('shop-radius-slider-value')
+        );
+
+      addLayerFromSourceWithListeners(
+        map,
+        "parks",
+        "./parks_centroids.geojson",
+        'rgb(0, 254, 0)',
+        document.getElementById('park-opacity-slider'),
+        document.getElementById('park-opacity-slider-value'),
+        document.getElementById('park-radius-slider'),
+        document.getElementById('park-radius-slider-value')
         );
 
     });
