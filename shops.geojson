@@ -2,7 +2,7 @@
   "type": "FeatureCollection",
   "generator": "overpass-ide",
   "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
-  "timestamp": "2021-03-30T20:59:32Z",
+  "timestamp": "2021-04-01T19:20:42Z",
   "features": [
     {
       "type": "Feature",
@@ -148,6 +148,206 @@
         ]
       },
       "id": "relation/6438104"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/8807495",
+        "addr:city": "Croydon",
+        "addr:housenumber": "68-74",
+        "addr:postcode": "CR0 1RB",
+        "addr:street": "Church Street",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "retail",
+        "fhrs:authority": "Croydon",
+        "fhrs:id": "293526",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "source": "survey",
+        "source:postcode": "FSA Food Hygiene Ratings database",
+        "survey:date": "2018-10-04",
+        "type": "multipolygon"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -0.1033804,
+                51.3738782
+              ],
+              [
+                -0.1034716,
+                51.373932
+              ],
+              [
+                -0.1034917,
+                51.3739103
+              ],
+              [
+                -0.1035671,
+                51.3739417
+              ],
+              [
+                -0.1037576,
+                51.3737489
+              ],
+              [
+                -0.1038823,
+                51.373615
+              ],
+              [
+                -0.1036894,
+                51.3735408
+              ],
+              [
+                -0.1035837,
+                51.3736551
+              ],
+              [
+                -0.1033804,
+                51.3738782
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -0.1038823,
+                51.373615
+              ],
+              [
+                -0.1037576,
+                51.3737489
+              ],
+              [
+                -0.1035671,
+                51.3739417
+              ],
+              [
+                -0.1035393,
+                51.3739732
+              ],
+              [
+                -0.1035809,
+                51.3739982
+              ],
+              [
+                -0.103625,
+                51.3740257
+              ],
+              [
+                -0.1036601,
+                51.3739933
+              ],
+              [
+                -0.1039024,
+                51.37377
+              ],
+              [
+                -0.1040048,
+                51.3736794
+              ],
+              [
+                -0.1040281,
+                51.3736543
+              ],
+              [
+                -0.1038933,
+                51.3736017
+              ],
+              [
+                -0.1038823,
+                51.373615
+              ]
+            ]
+          ]
+        ]
+      },
+      "id": "relation/8807495"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/12380071",
+        "addr:city": "Wallington",
+        "addr:housenumber": "16",
+        "addr:postcode": "SM6 0HU",
+        "addr:street": "Beddington Gardens",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "retail",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "type": "multipolygon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1506177,
+              51.3598807
+            ],
+            [
+              -0.1506321,
+              51.3599045
+            ],
+            [
+              -0.1506673,
+              51.3598982
+            ],
+            [
+              -0.1507011,
+              51.3599717
+            ],
+            [
+              -0.1508171,
+              51.3599508
+            ],
+            [
+              -0.1508074,
+              51.3599299
+            ],
+            [
+              -0.1508994,
+              51.3599134
+            ],
+            [
+              -0.1509424,
+              51.3599057
+            ],
+            [
+              -0.1506892,
+              51.3593558
+            ],
+            [
+              -0.1504388,
+              51.3594008
+            ],
+            [
+              -0.1504278,
+              51.3593771
+            ],
+            [
+              -0.1502875,
+              51.3594023
+            ],
+            [
+              -0.1505145,
+              51.3598954
+            ],
+            [
+              -0.1506177,
+              51.3598807
+            ]
+          ]
+        ]
+      },
+      "id": "relation/12380071"
     },
     {
       "type": "Feature",
@@ -432,6 +632,45 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/4993828",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "yes",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1588993,
+              51.4120173
+            ],
+            [
+              -0.1591796,
+              51.4118605
+            ],
+            [
+              -0.1584647,
+              51.4113632
+            ],
+            [
+              -0.1581844,
+              51.41152
+            ],
+            [
+              -0.1588993,
+              51.4120173
+            ]
+          ]
+        ]
+      },
+      "id": "way/4993828"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/4996178",
         "addr:city": "London",
         "addr:postcode": "W14 8PB",
@@ -627,6 +866,83 @@
         ]
       },
       "id": "way/5465511"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/5548352",
+        "addr:housenumber": "3",
+        "addr:postcode": "SE15 5BA",
+        "addr:street": "Bellenden Street",
+        "alt_name": "LIDL London",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "yes",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "source": "Bing;OS StreetView"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0715726,
+              51.4726643
+            ],
+            [
+              -0.07146,
+              51.4721933
+            ],
+            [
+              -0.0713299,
+              51.4722054
+            ],
+            [
+              -0.0713343,
+              51.4722236
+            ],
+            [
+              -0.0710479,
+              51.4722502
+            ],
+            [
+              -0.0710545,
+              51.4722778
+            ],
+            [
+              -0.0709765,
+              51.472285
+            ],
+            [
+              -0.0710375,
+              51.4725402
+            ],
+            [
+              -0.0710671,
+              51.4725374
+            ],
+            [
+              -0.0710964,
+              51.4726603
+            ],
+            [
+              -0.0711077,
+              51.4727074
+            ],
+            [
+              -0.0711744,
+              51.4727012
+            ],
+            [
+              -0.0715726,
+              51.4726643
+            ]
+          ]
+        ]
+      },
+      "id": "way/5548352"
     },
     {
       "type": "Feature",
@@ -1171,6 +1487,100 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/23115218",
+        "addr:city": "Sutton",
+        "addr:country": "GB",
+        "addr:housenumber": "229",
+        "addr:postcode": "SM1 1LD",
+        "addr:street": "High Street",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/sutton/st-nicholas-way",
+        "fhrs:id": "570869",
+        "name": "Asda",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.195973,
+              51.3673773
+            ],
+            [
+              -0.1956348,
+              51.3667081
+            ],
+            [
+              -0.1956399,
+              51.3666554
+            ],
+            [
+              -0.1955942,
+              51.3665945
+            ],
+            [
+              -0.195552,
+              51.3665843
+            ],
+            [
+              -0.1954499,
+              51.3663597
+            ],
+            [
+              -0.1952164,
+              51.3664101
+            ],
+            [
+              -0.1952548,
+              51.3664934
+            ],
+            [
+              -0.1952929,
+              51.3665781
+            ],
+            [
+              -0.1950433,
+              51.3666219
+            ],
+            [
+              -0.1945777,
+              51.3667056
+            ],
+            [
+              -0.1949549,
+              51.3675234
+            ],
+            [
+              -0.1954184,
+              51.3674401
+            ],
+            [
+              -0.1954341,
+              51.3674742
+            ],
+            [
+              -0.195914,
+              51.3673879
+            ],
+            [
+              -0.195973,
+              51.3673773
+            ]
+          ]
+        ]
+      },
+      "id": "way/23115218"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/23945692",
         "brand": "Sainsbury's",
         "brand:wikidata": "Q152096",
@@ -1242,6 +1652,142 @@
         ]
       },
       "id": "way/23945692"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/24458195",
+        "addr:city": "London",
+        "addr:country": "GB",
+        "addr:housenumber": "151",
+        "addr:postcode": "E14 3BT",
+        "addr:street": "East Ferry Road",
+        "addr:unit": "Unit 2",
+        "branch": "Isle of Dogs Superstore",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/london/151-east-ferry-road-isle-of-dogs",
+        "fhrs:id": "150650",
+        "name": "Asda",
+        "opening_hours": "Mo 06:00-00:00; Tu-Fr 00:00-24:00; Sa 00:00-22:00; Su 11:00-17:00",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket",
+        "source": "GPS and sourounding data",
+        "source:addr:postcode": "FHRS Open Data",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0124394,
+              51.4934178
+            ],
+            [
+              -0.0123503,
+              51.4939546
+            ],
+            [
+              -0.0122592,
+              51.4939446
+            ],
+            [
+              -0.0122272,
+              51.4940911
+            ],
+            [
+              -0.0123985,
+              51.4941022
+            ],
+            [
+              -0.012368,
+              51.4942857
+            ],
+            [
+              -0.0124248,
+              51.4942894
+            ],
+            [
+              -0.0124198,
+              51.4943197
+            ],
+            [
+              -0.0124987,
+              51.4943248
+            ],
+            [
+              -0.0124905,
+              51.4943738
+            ],
+            [
+              -0.0132439,
+              51.4944228
+            ],
+            [
+              -0.0132575,
+              51.4943421
+            ],
+            [
+              -0.0137643,
+              51.4943751
+            ],
+            [
+              -0.0138464,
+              51.4938863
+            ],
+            [
+              -0.0136906,
+              51.4938762
+            ],
+            [
+              -0.013706,
+              51.4937842
+            ],
+            [
+              -0.0136037,
+              51.4937775
+            ],
+            [
+              -0.0136225,
+              51.4936654
+            ],
+            [
+              -0.0136923,
+              51.49367
+            ],
+            [
+              -0.0137002,
+              51.4936231
+            ],
+            [
+              -0.0137241,
+              51.4936246
+            ],
+            [
+              -0.0137308,
+              51.4935847
+            ],
+            [
+              -0.0137682,
+              51.4935871
+            ],
+            [
+              -0.013782,
+              51.4935042
+            ],
+            [
+              -0.0124394,
+              51.4934178
+            ]
+          ]
+        ]
+      },
+      "id": "way/24458195"
     },
     {
       "type": "Feature",
@@ -1781,6 +2327,135 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/26505373",
+        "addr:city": "London",
+        "addr:country": "GB",
+        "addr:postcode": "E6 5JP",
+        "addr:street": "Tollgate Road",
+        "addr:suburb": "Beckton",
+        "alt_name": "Mary Rose Mall",
+        "branch": "ASDA Beckton Superstore",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:phone": "+44 20 7476 4800",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/beckton/tollgate-road",
+        "fhrs:id": "641007",
+        "fhrs:local_authority_id": "70705/0001/0/000",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "name": "Asda",
+        "operator": "Asda Stores Ltd",
+        "ref:store": "04618",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0574231,
+              51.5156205
+            ],
+            [
+              0.0567715,
+              51.5149724
+            ],
+            [
+              0.0572968,
+              51.5147819
+            ],
+            [
+              0.0571053,
+              51.514751
+            ],
+            [
+              0.056998,
+              51.5146814
+            ],
+            [
+              0.0569343,
+              51.5145523
+            ],
+            [
+              0.0571419,
+              51.5145378
+            ],
+            [
+              0.0571782,
+              51.5146019
+            ],
+            [
+              0.0572729,
+              51.5146552
+            ],
+            [
+              0.0573848,
+              51.5146655
+            ],
+            [
+              0.057515,
+              51.5146662
+            ],
+            [
+              0.0576258,
+              51.5147796
+            ],
+            [
+              0.0579999,
+              51.5146042
+            ],
+            [
+              0.0581652,
+              51.5147688
+            ],
+            [
+              0.0582949,
+              51.5147442
+            ],
+            [
+              0.0584022,
+              51.5148644
+            ],
+            [
+              0.0583171,
+              51.51492
+            ],
+            [
+              0.0586436,
+              51.5152452
+            ],
+            [
+              0.0579841,
+              51.5154897
+            ],
+            [
+              0.0580335,
+              51.5155448
+            ],
+            [
+              0.0577909,
+              51.5156336
+            ],
+            [
+              0.0576671,
+              51.515521
+            ],
+            [
+              0.0574231,
+              51.5156205
+            ]
+          ]
+        ]
+      },
+      "id": "way/26505373"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/26587165",
         "brand:wikidata": "Q13218434",
         "building": "yes",
@@ -1981,6 +2656,117 @@
         ]
       },
       "id": "way/26614151"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/27071098",
+        "addr:street": "Old Kent Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "yes",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0833516,
+              51.4917775
+            ],
+            [
+              -0.0830112,
+              51.491931
+            ],
+            [
+              -0.0834661,
+              51.4922944
+            ],
+            [
+              -0.0838151,
+              51.4921302
+            ],
+            [
+              -0.0833516,
+              51.4917775
+            ]
+          ]
+        ]
+      },
+      "id": "way/27071098"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/28315793",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "yes",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1898425,
+              51.3841103
+            ],
+            [
+              -0.1898406,
+              51.3840401
+            ],
+            [
+              -0.1892434,
+              51.3837735
+            ],
+            [
+              -0.1892287,
+              51.3837943
+            ],
+            [
+              -0.1891758,
+              51.3837673
+            ],
+            [
+              -0.1891034,
+              51.3838394
+            ],
+            [
+              -0.1890738,
+              51.3838276
+            ],
+            [
+              -0.1889618,
+              51.3839428
+            ],
+            [
+              -0.1890703,
+              51.3839956
+            ],
+            [
+              -0.1890475,
+              51.3840233
+            ],
+            [
+              -0.1896683,
+              51.3843065
+            ],
+            [
+              -0.1898425,
+              51.3841103
+            ]
+          ]
+        ]
+      },
+      "id": "way/28315793"
     },
     {
       "type": "Feature",
@@ -2288,6 +3074,67 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/31180155",
+        "addr:housenumber": "840",
+        "addr:postcode": "SE15 1NQ",
+        "addr:street": "Old Kent Road",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "building": "shop",
+        "name": "Aldi",
+        "name:fa": "آلدی",
+        "opening_hours": "Mo-Sa, PH 08:00-22:00; Su 11:00-17:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0559784,
+              51.4790343
+            ],
+            [
+              -0.0561785,
+              51.47883
+            ],
+            [
+              -0.055612,
+              51.4786148
+            ],
+            [
+              -0.0556557,
+              51.4785702
+            ],
+            [
+              -0.0554872,
+              51.4785062
+            ],
+            [
+              -0.0552626,
+              51.4787356
+            ],
+            [
+              -0.0556407,
+              51.4788792
+            ],
+            [
+              -0.0556215,
+              51.4788988
+            ],
+            [
+              -0.0559784,
+              51.4790343
+            ]
+          ]
+        ]
+      },
+      "id": "way/31180155"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/33968790",
         "brand": "Waitrose",
         "brand:wikidata": "Q771734",
@@ -2515,6 +3362,161 @@
         ]
       },
       "id": "way/35215707"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/35824042",
+        "addr:country": "GB",
+        "addr:housenumber": "204",
+        "addr:postcode": "SW11 1JG",
+        "addr:street": "Lavender Hill",
+        "atm": "yes",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/london/204-lavender-hill-battersea",
+        "fhrs:id": "296481",
+        "name": "Asda",
+        "opening_hours": "Mo 07:30-24:00;Tu-Fr 00:00-24:00;Sa 00:00-22:00;Su 11:00-17:00",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket",
+        "source:addr": "FHRS Open Data",
+        "toilets": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1656411,
+              51.4656739
+            ],
+            [
+              -0.1655091,
+              51.4652359
+            ],
+            [
+              -0.1655337,
+              51.4652345
+            ],
+            [
+              -0.1656111,
+              51.4652299
+            ],
+            [
+              -0.165584,
+              51.465077
+            ],
+            [
+              -0.1648276,
+              51.465144
+            ],
+            [
+              -0.164833,
+              51.465204
+            ],
+            [
+              -0.1644657,
+              51.4652374
+            ],
+            [
+              -0.1642802,
+              51.4652543
+            ],
+            [
+              -0.1644948,
+              51.4659628
+            ],
+            [
+              -0.1651777,
+              51.4659009
+            ],
+            [
+              -0.1653203,
+              51.4658283
+            ],
+            [
+              -0.1653128,
+              51.465772
+            ],
+            [
+              -0.1654171,
+              51.4657459
+            ],
+            [
+              -0.1654185,
+              51.4656908
+            ],
+            [
+              -0.1656411,
+              51.4656739
+            ]
+          ]
+        ]
+      },
+      "id": "way/35824042"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/35824055",
+        "addr:city": "London",
+        "addr:country": "GB",
+        "addr:housenumber": "141",
+        "addr:postcode": "SW11 2PE",
+        "addr:street": "Falcon Lane",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "yes",
+        "fhrs:id": "297686",
+        "name": "Lidl",
+        "opening_hours": "Mo-Fr 08:00-23:00; Sa 08:00-22:00; Su 11:00-17:00",
+        "shop": "supermarket",
+        "website": "https://www.lidl.co.uk/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1674058,
+              51.4650732
+            ],
+            [
+              -0.1670978,
+              51.4646683
+            ],
+            [
+              -0.1667817,
+              51.4647617
+            ],
+            [
+              -0.1671267,
+              51.4652153
+            ],
+            [
+              -0.1672661,
+              51.4651741
+            ],
+            [
+              -0.1672291,
+              51.4651254
+            ],
+            [
+              -0.1674058,
+              51.4650732
+            ]
+          ]
+        ]
+      },
+      "id": "way/35824055"
     },
     {
       "type": "Feature",
@@ -2857,6 +3859,70 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/51872741",
+        "addr:city": "London",
+        "addr:housenumber": "306",
+        "addr:postcode": "E14 7DL",
+        "addr:street": "Burdett Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "yes",
+        "fhrs:id": "44488",
+        "fhrs:local_authority_id": "10792",
+        "name": "Lidl",
+        "opening_hours": "Mo-Sa 07:00-23:00; Su 11:00-17:00",
+        "shop": "supermarket",
+        "source:addr": "FHRS Open Data"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0290175,
+              51.5147252
+            ],
+            [
+              -0.0289396,
+              51.5145759
+            ],
+            [
+              -0.0289798,
+              51.5145682
+            ],
+            [
+              -0.0289328,
+              51.5144123
+            ],
+            [
+              -0.0288586,
+              51.5144262
+            ],
+            [
+              -0.0287781,
+              51.5142863
+            ],
+            [
+              -0.0284139,
+              51.5143585
+            ],
+            [
+              -0.0286425,
+              51.5148016
+            ],
+            [
+              -0.0290175,
+              51.5147252
+            ]
+          ]
+        ]
+      },
+      "id": "way/51872741"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/67163596",
         "addr:housenumber": "37-41",
         "addr:postcode": "SE5 8UH",
@@ -3020,6 +4086,63 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/72031957",
+        "addr:country": "GB",
+        "addr:housenumber": "172-174",
+        "addr:postcode": "SE15 4NB",
+        "addr:street": "Rye Lane",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/peckham/rye-lane",
+        "name": "Asda",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket",
+        "source": "Bing;OS StreetView"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0678195,
+              51.467503
+            ],
+            [
+              -0.067687,
+              51.467326
+            ],
+            [
+              -0.0675762,
+              51.4673563
+            ],
+            [
+              -0.0669514,
+              51.4675284
+            ],
+            [
+              -0.0670781,
+              51.467707
+            ],
+            [
+              -0.0673039,
+              51.4676449
+            ],
+            [
+              -0.0678195,
+              51.467503
+            ]
+          ]
+        ]
+      },
+      "id": "way/72031957"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/72889744",
         "brand": "Sainsbury's",
         "brand:wikidata": "Q152096",
@@ -3082,6 +4205,72 @@
         ]
       },
       "id": "way/72889744"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/73813293",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "retail",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "opening_hours": "Mo-Sa 08:00-22:00; Su 11:00-17:00; PH 08:00-22:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0578247,
+              51.4798795
+            ],
+            [
+              -0.0584728,
+              51.4801193
+            ],
+            [
+              -0.0585521,
+              51.4800361
+            ],
+            [
+              -0.0586125,
+              51.4800584
+            ],
+            [
+              -0.0588324,
+              51.4798279
+            ],
+            [
+              -0.0587739,
+              51.4798062
+            ],
+            [
+              -0.0588651,
+              51.4797107
+            ],
+            [
+              -0.0583161,
+              51.4795075
+            ],
+            [
+              -0.0581034,
+              51.4797304
+            ],
+            [
+              -0.0580026,
+              51.4796931
+            ],
+            [
+              -0.0578247,
+              51.4798795
+            ]
+          ]
+        ]
+      },
+      "id": "way/73813293"
     },
     {
       "type": "Feature",
@@ -3245,6 +4434,97 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/94690339",
+        "addr:city": "Croydon",
+        "addr:country": "GB",
+        "addr:postcode": "CR0 4XS",
+        "addr:street": "Marlowe Way",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "retail",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/croydon/marlow-way",
+        "fhrs:id": "570872",
+        "name": "Asda",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket",
+        "source": "survey",
+        "survey:date": "2018-10-29"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1307331,
+              51.3763956
+            ],
+            [
+              -0.1307817,
+              51.376396
+            ],
+            [
+              -0.1308191,
+              51.3763947
+            ],
+            [
+              -0.1308157,
+              51.376279
+            ],
+            [
+              -0.1306148,
+              51.3762792
+            ],
+            [
+              -0.1306161,
+              51.3762978
+            ],
+            [
+              -0.1306162,
+              51.3763184
+            ],
+            [
+              -0.1296983,
+              51.3763314
+            ],
+            [
+              -0.1297056,
+              51.3765188
+            ],
+            [
+              -0.1293408,
+              51.3766981
+            ],
+            [
+              -0.1293504,
+              51.3773043
+            ],
+            [
+              -0.1305593,
+              51.377296
+            ],
+            [
+              -0.1305636,
+              51.3772053
+            ],
+            [
+              -0.1307283,
+              51.3772068
+            ],
+            [
+              -0.1307331,
+              51.3763956
+            ]
+          ]
+        ]
+      },
+      "id": "way/94690339"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/95223674",
         "addr:housenumber": "56-62",
         "addr:postcode": "SE22 8HJ",
@@ -3341,6 +4621,60 @@
         ]
       },
       "id": "way/95223717"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/95689883",
+        "addr:city": "Mitcham",
+        "addr:housenumber": "9-17",
+        "addr:postcode": "CR4 3ED",
+        "addr:street": "Western Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "yes",
+        "fhrs:id": "669658",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "source": "survey;code-point open;fhrs",
+        "survey:date": "2018-11-02"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1666939,
+              51.4059408
+            ],
+            [
+              -0.1667946,
+              51.4057814
+            ],
+            [
+              -0.1661186,
+              51.4056152
+            ],
+            [
+              -0.1658937,
+              51.4059713
+            ],
+            [
+              -0.1662631,
+              51.4060621
+            ],
+            [
+              -0.1663873,
+              51.4058654
+            ],
+            [
+              -0.1666939,
+              51.4059408
+            ]
+          ]
+        ]
+      },
+      "id": "way/95689883"
     },
     {
       "type": "Feature",
@@ -3470,6 +4804,67 @@
         ]
       },
       "id": "way/95859531"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/95894491",
+        "addr:city": "Mitcham",
+        "addr:country": "GB",
+        "addr:parentstreet": "Bond Road",
+        "addr:postcode": "CR4 3HG",
+        "addr:street": "James Estate",
+        "addr:unit": "1",
+        "alt_name": "Asda Mitcham Supermarket",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "supermarket",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/mitcham/st-james-estate-bond-road",
+        "fhrs:id": "480258",
+        "name": "Asda",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket",
+        "source": "Asda website"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1683487,
+              51.4077629
+            ],
+            [
+              -0.1687456,
+              51.4074684
+            ],
+            [
+              -0.168177,
+              51.4071137
+            ],
+            [
+              -0.1677693,
+              51.4072877
+            ],
+            [
+              -0.1678551,
+              51.4073412
+            ],
+            [
+              -0.1677586,
+              51.4074483
+            ],
+            [
+              -0.1683487,
+              51.4077629
+            ]
+          ]
+        ]
+      },
+      "id": "way/95894491"
     },
     {
       "type": "Feature",
@@ -3853,6 +5248,69 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/114409100",
+        "addr:housenumber": "14",
+        "addr:postcode": "SW17 9HW",
+        "addr:street": "London Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "yes",
+        "fhrs:id": "578970",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.163352,
+              51.4198642
+            ],
+            [
+              -0.1634057,
+              51.4198542
+            ],
+            [
+              -0.1634271,
+              51.4198876
+            ],
+            [
+              -0.1643874,
+              51.4196869
+            ],
+            [
+              -0.1643659,
+              51.4196133
+            ],
+            [
+              -0.1642801,
+              51.4196334
+            ],
+            [
+              -0.1642157,
+              51.4194962
+            ],
+            [
+              -0.1632501,
+              51.4196936
+            ],
+            [
+              -0.1633337,
+              51.4198335
+            ],
+            [
+              -0.163352,
+              51.4198642
+            ]
+          ]
+        ]
+      },
+      "id": "way/114409100"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/125758858",
         "addr:housenumber": "127-129",
         "addr:postcode": "SE24 9JY",
@@ -4013,6 +5471,58 @@
         ]
       },
       "id": "way/129098919"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/137459762",
+        "addr:postcode": "DA16 3HF",
+        "addr:street": "Upper Wickham Lane",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "yes",
+        "designation": "Welling",
+        "name": "LIDL",
+        "operator": "Lidl",
+        "shop": "supermarket",
+        "source": "Bing"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.1070294,
+              51.4645318
+            ],
+            [
+              0.1069242,
+              51.4641788
+            ],
+            [
+              0.1079603,
+              51.4640591
+            ],
+            [
+              0.1079876,
+              51.4641507
+            ],
+            [
+              0.1079361,
+              51.4641566
+            ],
+            [
+              0.108014,
+              51.464418
+            ],
+            [
+              0.1070294,
+              51.4645318
+            ]
+          ]
+        ]
+      },
+      "id": "way/137459762"
     },
     {
       "type": "Feature",
@@ -5644,6 +7154,94 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/164682937",
+        "addr:city": "London",
+        "addr:housenumber": "1",
+        "addr:postcode": "SW16 3LH",
+        "addr:street": "Hermitage Lane",
+        "addr:suburb": "Norbury",
+        "alt_name": "LIDL London",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "shop",
+        "fhrs:authority": "Croydon",
+        "fhrs:id": "859654",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1240102,
+              51.414182
+            ],
+            [
+              -0.1237637,
+              51.4140847
+            ],
+            [
+              -0.1236981,
+              51.4141475
+            ],
+            [
+              -0.1235578,
+              51.4142956
+            ],
+            [
+              -0.1235194,
+              51.4142787
+            ],
+            [
+              -0.1233565,
+              51.4144324
+            ],
+            [
+              -0.1233791,
+              51.4144741
+            ],
+            [
+              -0.1234266,
+              51.4145164
+            ],
+            [
+              -0.1235126,
+              51.4145686
+            ],
+            [
+              -0.1235963,
+              51.4145926
+            ],
+            [
+              -0.1236958,
+              51.4145911
+            ],
+            [
+              -0.1237795,
+              51.4145742
+            ],
+            [
+              -0.1238315,
+              51.4145502
+            ],
+            [
+              -0.1237026,
+              51.414498
+            ],
+            [
+              -0.1240102,
+              51.414182
+            ]
+          ]
+        ]
+      },
+      "id": "way/164682937"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/168241816",
         "addr:housenumber": "4",
         "addr:postcode": "SW16 3JG",
@@ -5696,6 +7294,97 @@
         ]
       },
       "id": "way/168241816"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/168695291",
+        "addr:city": "Croydon",
+        "addr:housenumber": "99-101",
+        "addr:postcode": "CR0 2RF",
+        "addr:street": "London Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "shop",
+        "fhrs:authority": "Croydon",
+        "fhrs:id": "6987",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "shop": "supermarket",
+        "source:postcode": "FSA Food Hygiene Ratings database"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1062117,
+              51.3805425
+            ],
+            [
+              -0.1060623,
+              51.380592
+            ],
+            [
+              -0.106015,
+              51.3805407
+            ],
+            [
+              -0.1059678,
+              51.3805563
+            ],
+            [
+              -0.1057986,
+              51.3803559
+            ],
+            [
+              -0.1053233,
+              51.3805081
+            ],
+            [
+              -0.1052019,
+              51.3804973
+            ],
+            [
+              -0.1051641,
+              51.3805741
+            ],
+            [
+              -0.1052288,
+              51.3805834
+            ],
+            [
+              -0.1052064,
+              51.3806285
+            ],
+            [
+              -0.1055697,
+              51.3810183
+            ],
+            [
+              -0.1056502,
+              51.3810303
+            ],
+            [
+              -0.1062161,
+              51.38084
+            ],
+            [
+              -0.1061977,
+              51.3808194
+            ],
+            [
+              -0.1063808,
+              51.380755
+            ],
+            [
+              -0.1062117,
+              51.3805425
+            ]
+          ]
+        ]
+      },
+      "id": "way/168695291"
     },
     {
       "type": "Feature",
@@ -5755,6 +7444,63 @@
         ]
       },
       "id": "way/172292289"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/172844248",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "building": "shop",
+        "name": "Aldi",
+        "name:fa": "آلدی",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0591005,
+              51.408221
+            ],
+            [
+              -0.0586263,
+              51.4083621
+            ],
+            [
+              -0.0586963,
+              51.4084536
+            ],
+            [
+              -0.0589008,
+              51.4083928
+            ],
+            [
+              -0.0591136,
+              51.408671
+            ],
+            [
+              -0.0591387,
+              51.4087039
+            ],
+            [
+              -0.0593472,
+              51.4086419
+            ],
+            [
+              -0.0593776,
+              51.4085833
+            ],
+            [
+              -0.0591005,
+              51.408221
+            ]
+          ]
+        ]
+      },
+      "id": "way/172844248"
     },
     {
       "type": "Feature",
@@ -6271,6 +8017,91 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/179063396",
+        "addr:housenumber": "137",
+        "addr:postcode": "SE9 1TQ",
+        "addr:street": "Eltham High Street",
+        "alt_name": "LIDL Eltham",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "yes",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0556433,
+              51.4512877
+            ],
+            [
+              0.0557064,
+              51.4508992
+            ],
+            [
+              0.0556761,
+              51.450895
+            ],
+            [
+              0.0556571,
+              51.4508935
+            ],
+            [
+              0.0556732,
+              51.4508142
+            ],
+            [
+              0.0557379,
+              51.4508193
+            ],
+            [
+              0.0560792,
+              51.4508473
+            ],
+            [
+              0.0560368,
+              51.4510025
+            ],
+            [
+              0.0560297,
+              51.4510813
+            ],
+            [
+              0.0560474,
+              51.4511174
+            ],
+            [
+              0.0560131,
+              51.4512927
+            ],
+            [
+              0.0559818,
+              51.4513613
+            ],
+            [
+              0.0557018,
+              51.4513448
+            ],
+            [
+              0.0557081,
+              51.4512907
+            ],
+            [
+              0.0556433,
+              51.4512877
+            ]
+          ]
+        ]
+      },
+      "id": "way/179063396"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/179319964",
         "addr:housenumber": "73",
         "addr:postcode": "BR7 5AG",
@@ -6686,6 +8517,128 @@
         ]
       },
       "id": "way/188973453"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/190126013",
+        "addr:city": "South Croydon",
+        "addr:housenumber": "232-236",
+        "addr:postcode": "CR2 8LE",
+        "addr:street": "Addington Road",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "building": "yes",
+        "fhrs:authority": "Croydon",
+        "fhrs:id": "22206",
+        "name": "Aldi",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0594931,
+              51.3449517
+            ],
+            [
+              -0.0591634,
+              51.3446764
+            ],
+            [
+              -0.0589988,
+              51.3447534
+            ],
+            [
+              -0.0589392,
+              51.3447036
+            ],
+            [
+              -0.0586836,
+              51.344823
+            ],
+            [
+              -0.0587296,
+              51.3448614
+            ],
+            [
+              -0.0590729,
+              51.3451481
+            ],
+            [
+              -0.0594931,
+              51.3449517
+            ]
+          ]
+        ]
+      },
+      "id": "way/190126013"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/191154250",
+        "addr:city": "London",
+        "addr:housenumber": "18-20",
+        "addr:postcode": "SE25 5AJ",
+        "addr:street": "Station Road",
+        "addr:suburb": "South Norwood",
+        "branch": "South Norwood",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "building": "shop",
+        "fhrs:authority": "Croydon",
+        "fhrs:id": "983328",
+        "name": "Aldi",
+        "name:fa": "آلدی",
+        "old_name": "Co-operative",
+        "opening_hours": "Mo-Sa 08:00-22:00; Su 11:00-17:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0767385,
+              51.397472
+            ],
+            [
+              -0.0764419,
+              51.3973564
+            ],
+            [
+              -0.0762638,
+              51.3975389
+            ],
+            [
+              -0.0760759,
+              51.3977153
+            ],
+            [
+              -0.0765814,
+              51.3979716
+            ],
+            [
+              -0.0768887,
+              51.3976741
+            ],
+            [
+              -0.0766461,
+              51.3975701
+            ],
+            [
+              -0.0767385,
+              51.397472
+            ]
+          ]
+        ]
+      },
+      "id": "way/191154250"
     },
     {
       "type": "Feature",
@@ -8037,6 +9990,113 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/215417384",
+        "addr:postcode": "SE6 4JD",
+        "addr:street": "Rushey Green",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "building": "supermarket",
+        "designation": "Catford",
+        "name": "Aldi",
+        "name:fa": "آلدی",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.018013,
+              51.448497
+            ],
+            [
+              -0.0178443,
+              51.4484564
+            ],
+            [
+              -0.0179083,
+              51.4483624
+            ],
+            [
+              -0.017748,
+              51.4483417
+            ],
+            [
+              -0.0174582,
+              51.4488087
+            ],
+            [
+              -0.017828,
+              51.4488978
+            ],
+            [
+              -0.0179042,
+              51.4487749
+            ],
+            [
+              -0.0178489,
+              51.4487616
+            ],
+            [
+              -0.018013,
+              51.448497
+            ]
+          ]
+        ]
+      },
+      "id": "way/215417384"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/215418534",
+        "addr:postcode": "SE6 2DE",
+        "addr:street": "Plassy Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "supermarket",
+        "designation": "Catford",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0193713,
+              51.4443608
+            ],
+            [
+              -0.0187079,
+              51.4442966
+            ],
+            [
+              -0.0186372,
+              51.4445805
+            ],
+            [
+              -0.0190015,
+              51.4446157
+            ],
+            [
+              -0.0193006,
+              51.4446446
+            ],
+            [
+              -0.0193713,
+              51.4443608
+            ]
+          ]
+        ]
+      },
+      "id": "way/215418534"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/218439860",
         "addr:housenumber": "33",
         "addr:postcode": "SW4 7TP",
@@ -8510,6 +10570,141 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/221471622",
+        "addr:city": "Woolwich",
+        "addr:housenumber": "38",
+        "addr:postcode": "SE18 6LW",
+        "addr:street": "MacBean Street",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "retail",
+        "designation": "London - Woolwich",
+        "name": "Lidl",
+        "opening_hours": "Mo-Sa 08:00-22:00; Su 10:00-16:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0654477,
+              51.4927189
+            ],
+            [
+              0.0654161,
+              51.4926951
+            ],
+            [
+              0.0654206,
+              51.4926698
+            ],
+            [
+              0.0658555,
+              51.4923317
+            ],
+            [
+              0.0658825,
+              51.4923163
+            ],
+            [
+              0.0659224,
+              51.4923077
+            ],
+            [
+              0.0659343,
+              51.4923051
+            ],
+            [
+              0.0665517,
+              51.4926305
+            ],
+            [
+              0.0665765,
+              51.4926446
+            ],
+            [
+              0.0665765,
+              51.4926614
+            ],
+            [
+              0.0660943,
+              51.4929981
+            ],
+            [
+              0.066047,
+              51.4930149
+            ],
+            [
+              0.0659997,
+              51.4930163
+            ],
+            [
+              0.0659704,
+              51.4930121
+            ],
+            [
+              0.0654477,
+              51.4927189
+            ]
+          ]
+        ]
+      },
+      "id": "way/221471622"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/221661337",
+        "addr:city": "Croydon",
+        "addr:housenumber": "119-123",
+        "addr:postcode": "CR0 2LG",
+        "addr:street": "Whitehorse Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "retail",
+        "name": "Lidl",
+        "opening_hours": "Mo-Sa 08:00-22:00, Su 11:00-17:00",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0971818,
+              51.3877526
+            ],
+            [
+              -0.0969215,
+              51.387535
+            ],
+            [
+              -0.0963589,
+              51.3878004
+            ],
+            [
+              -0.0967053,
+              51.3880935
+            ],
+            [
+              -0.0971818,
+              51.3877526
+            ]
+          ]
+        ]
+      },
+      "id": "way/221661337"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/221661338",
         "addr:city": "Croydon",
         "addr:housenumber": "111",
@@ -8623,6 +10818,108 @@
         ]
       },
       "id": "way/222397597"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/222694491",
+        "addr:city": "London",
+        "addr:country": "GB",
+        "addr:housenumber": "464-504",
+        "addr:postcode": "SE1 5EG",
+        "addr:street": "Old Kent Road",
+        "alt_name": "ASDA Old Kent Road Superstore",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:phone": "+44 20 7500 7900",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/london/464-504-old-kent-road",
+        "fhrs:id": "364944",
+        "name": "Asda",
+        "opening_hours": "Tu-Fr 07:00-23:00, Mo 08:00-23:00, Su 11:00-17:00, Sa 07:00-22:00",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0704408,
+              51.4842994
+            ],
+            [
+              -0.0702584,
+              51.4842965
+            ],
+            [
+              -0.0702633,
+              51.4841793
+            ],
+            [
+              -0.0696725,
+              51.4841697
+            ],
+            [
+              -0.0696784,
+              51.4840288
+            ],
+            [
+              -0.0694526,
+              51.4840251
+            ],
+            [
+              -0.0694463,
+              51.4841745
+            ],
+            [
+              -0.0692975,
+              51.4841721
+            ],
+            [
+              -0.0692909,
+              51.4843268
+            ],
+            [
+              -0.0694431,
+              51.4843293
+            ],
+            [
+              -0.0694114,
+              51.4850765
+            ],
+            [
+              -0.0700032,
+              51.4853137
+            ],
+            [
+              -0.0700139,
+              51.4850858
+            ],
+            [
+              -0.0705594,
+              51.4850947
+            ],
+            [
+              -0.0705279,
+              51.4846988
+            ],
+            [
+              -0.0704241,
+              51.484694
+            ],
+            [
+              -0.0704408,
+              51.4842994
+            ]
+          ]
+        ]
+      },
+      "id": "way/222694491"
     },
     {
       "type": "Feature",
@@ -10269,6 +12566,115 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/285156063",
+        "addr:city": "London",
+        "addr:country": "GB",
+        "addr:postcode": "SE7 7ST",
+        "addr:street": "Bugsby's Way",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/london/bugsby-way-charlton",
+        "fhrs:id": "694145",
+        "name": "Asda",
+        "opening_hours": "Mo 07:00-24:00; Tu-Fr 00:00-24:00; Sa 00:00-22:00; Su 11:00-17:00",
+        "operator": "Asda Stores Ltd",
+        "payment:cash": "yes",
+        "payment:debit_cards": "yes",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0216207,
+              51.489021
+            ],
+            [
+              0.0216459,
+              51.4884437
+            ],
+            [
+              0.0221359,
+              51.488452
+            ],
+            [
+              0.0221454,
+              51.4882333
+            ],
+            [
+              0.0225478,
+              51.4882401
+            ],
+            [
+              0.0227597,
+              51.4883336
+            ],
+            [
+              0.022924,
+              51.4883365
+            ],
+            [
+              0.022916,
+              51.4885154
+            ],
+            [
+              0.0230307,
+              51.4885174
+            ],
+            [
+              0.0230254,
+              51.4886348
+            ],
+            [
+              0.0229424,
+              51.4886333
+            ],
+            [
+              0.0229191,
+              51.489153
+            ],
+            [
+              0.0227208,
+              51.4891496
+            ],
+            [
+              0.0227183,
+              51.4892048
+            ],
+            [
+              0.0224176,
+              51.4891997
+            ],
+            [
+              0.0224201,
+              51.4891411
+            ],
+            [
+              0.0223104,
+              51.4891392
+            ],
+            [
+              0.0223151,
+              51.4890328
+            ],
+            [
+              0.0216207,
+              51.489021
+            ]
+          ]
+        ]
+      },
+      "id": "way/285156063"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/285593251",
         "brand:wikidata": "Q13218434",
         "building": "yes",
@@ -10403,6 +12809,102 @@
         ]
       },
       "id": "way/291678118"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/300037227",
+        "addr:city": "London",
+        "addr:country": "GB",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "retail",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1207299,
+              51.4734831
+            ],
+            [
+              -0.1201689,
+              51.4732455
+            ],
+            [
+              -0.1200158,
+              51.4733857
+            ],
+            [
+              -0.1205768,
+              51.4736233
+            ],
+            [
+              -0.1207299,
+              51.4734831
+            ]
+          ]
+        ]
+      },
+      "id": "way/300037227"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/300815350",
+        "addr:city": "London",
+        "addr:housenumber": "71-73",
+        "addr:postcode": "SW2 5TN",
+        "addr:street": "Acre Lane",
+        "branch": "Brixton",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "yes",
+        "name": "LIDL",
+        "name:fa": "لیدل",
+        "opening_hours": "Mo-Sa 08:00-22:00; Su 10:00-16:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1240862,
+              51.4594435
+            ],
+            [
+              -0.1239868,
+              51.4590151
+            ],
+            [
+              -0.123869,
+              51.4590258
+            ],
+            [
+              -0.1238827,
+              51.4590848
+            ],
+            [
+              -0.1236068,
+              51.4591096
+            ],
+            [
+              -0.1236925,
+              51.4594789
+            ],
+            [
+              -0.1240862,
+              51.4594435
+            ]
+          ]
+        ]
+      },
+      "id": "way/300815350"
     },
     {
       "type": "Feature",
@@ -12086,6 +14588,108 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/384035748",
+        "addr:city": "Bexleyheath",
+        "addr:country": "GB",
+        "addr:housenumber": "160",
+        "addr:postcode": "DA6 7BN",
+        "addr:street": "Broadway",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "retail",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/bexleyheath/140-graham-road-broadway",
+        "fhrs:id": "329297",
+        "name": "Asda",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.1420038,
+              51.4571181
+            ],
+            [
+              0.1420075,
+              51.4571031
+            ],
+            [
+              0.142035,
+              51.4570939
+            ],
+            [
+              0.1420605,
+              51.457096
+            ],
+            [
+              0.1420786,
+              51.4571081
+            ],
+            [
+              0.1424623,
+              51.4570485
+            ],
+            [
+              0.1425336,
+              51.4570528
+            ],
+            [
+              0.1425643,
+              51.4570595
+            ],
+            [
+              0.142591,
+              51.4570686
+            ],
+            [
+              0.1426171,
+              51.4570786
+            ],
+            [
+              0.1428981,
+              51.4572997
+            ],
+            [
+              0.1430576,
+              51.4574299
+            ],
+            [
+              0.1430868,
+              51.4575111
+            ],
+            [
+              0.1430891,
+              51.4576146
+            ],
+            [
+              0.1430688,
+              51.4577826
+            ],
+            [
+              0.1431313,
+              51.4579651
+            ],
+            [
+              0.1423927,
+              51.4580793
+            ],
+            [
+              0.1420038,
+              51.4571181
+            ]
+          ]
+        ]
+      },
+      "id": "way/384035748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/386989415",
         "brand": "Tesco Express",
         "brand:wikidata": "Q98456772",
@@ -12136,6 +14740,67 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/390830077",
+        "addr:city": "London",
+        "addr:country": "GB",
+        "addr:housenumber": "5-9",
+        "addr:postcode": "SE8 4AD",
+        "addr:street": "Deptford High Street",
+        "alt_name": "ASDA Deptford",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:phone": "+44 20 3794 7420",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/deptford/5-9-deptford-high-street",
+        "fhrs:id": "786204",
+        "name": "Asda",
+        "opening_hours": "Mo-Sa 07:00-23:00; Su 11:00-17:00",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0261051,
+              51.4753269
+            ],
+            [
+              -0.0262467,
+              51.4753405
+            ],
+            [
+              -0.0262825,
+              51.4751944
+            ],
+            [
+              -0.0261421,
+              51.4751807
+            ],
+            [
+              -0.0261371,
+              51.4751978
+            ],
+            [
+              -0.0261273,
+              51.4752376
+            ],
+            [
+              -0.0261051,
+              51.4753269
+            ]
+          ]
+        ]
+      },
+      "id": "way/390830077"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/390830081",
         "addr:city": "London",
         "addr:country": "GB",
@@ -12143,14 +14808,15 @@
         "addr:postcode": "SE8 4AF",
         "addr:street": "Deptford High Street",
         "brand": "Tesco Express",
-        "brand:wikidata": "Q98456772",
+        "brand:wikidata": "Q487494",
+        "brand:wikipedia": "en:Tesco",
         "building": "yes",
-        "name": "Deptford High Street Tesco Express",
+        "name": "Tesco Express",
         "opening_hours": "Mo-Su 06:00-23:00",
         "operator": "Tesco",
         "phone": "+44 3456 757 230",
         "ref": "6048",
-        "shop": "supermarket",
+        "shop": "convenience",
         "website": "https://www.tesco.com/store-locator/uk/?bID=6048"
       },
       "geometry": {
@@ -12486,6 +15152,68 @@
         ]
       },
       "id": "way/428095767"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/428472703",
+        "addr:city": "London",
+        "addr:housenumber": "198",
+        "addr:postcode": "E6 5YA",
+        "addr:street": "Tollgate Road",
+        "area": "yes",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "yes",
+        "fhrs:id": "919728",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0540696,
+              51.5160353
+            ],
+            [
+              0.0539993,
+              51.5155509
+            ],
+            [
+              0.0541203,
+              51.5155441
+            ],
+            [
+              0.0541251,
+              51.5155774
+            ],
+            [
+              0.0543832,
+              51.5155629
+            ],
+            [
+              0.0544257,
+              51.5158557
+            ],
+            [
+              0.0545711,
+              51.5158476
+            ],
+            [
+              0.054594,
+              51.5160058
+            ],
+            [
+              0.0540696,
+              51.5160353
+            ]
+          ]
+        ]
+      },
+      "id": "way/428472703"
     },
     {
       "type": "Feature",
@@ -12860,6 +15588,131 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/435374356",
+        "addr:city": "London Borough of Southwark",
+        "addr:postcode": "SE8 5AW",
+        "addr:street": "Bestwood Street",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "yes",
+        "name": "Lidl",
+        "opening_hours": "Mo-Sa 08:00-22:00, Su 11:00-17:00",
+        "payment:cash": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0432756,
+              51.4897302
+            ],
+            [
+              -0.0433382,
+              51.4897735
+            ],
+            [
+              -0.0435014,
+              51.4896829
+            ],
+            [
+              -0.0440164,
+              51.4900218
+            ],
+            [
+              -0.0443695,
+              51.489826
+            ],
+            [
+              -0.0437703,
+              51.4894205
+            ],
+            [
+              -0.0437614,
+              51.4894263
+            ],
+            [
+              -0.0432756,
+              51.4897302
+            ]
+          ]
+        ]
+      },
+      "id": "way/435374356"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/438335677",
+        "addr:city": "Thornton Heath",
+        "addr:housenumber": "845",
+        "addr:postcode": "CR7 6AW",
+        "addr:street": "London Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "retail",
+        "fhrs:authority": "Croydon",
+        "fhrs:id": "7032",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1166959,
+              51.3970378
+            ],
+            [
+              -0.1164391,
+              51.3965097
+            ],
+            [
+              -0.1164298,
+              51.3964907
+            ],
+            [
+              -0.1161175,
+              51.3965493
+            ],
+            [
+              -0.1162102,
+              51.3967399
+            ],
+            [
+              -0.1161396,
+              51.3967532
+            ],
+            [
+              -0.1161931,
+              51.3968631
+            ],
+            [
+              -0.1162609,
+              51.3968503
+            ],
+            [
+              -0.116381,
+              51.3970974
+            ],
+            [
+              -0.1166959,
+              51.3970378
+            ]
+          ]
+        ]
+      },
+      "id": "way/438335677"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/438335680",
         "addr:city": "Thornton Heath",
         "addr:housenumber": "847-853",
@@ -13098,6 +15951,62 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/455068144",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "retail",
+        "name": "Lidl",
+        "note": "Honda car showroom demolished and supermarket built",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.1518463,
+              51.4555613
+            ],
+            [
+              0.1524109,
+              51.4554976
+            ],
+            [
+              0.152598,
+              51.4561412
+            ],
+            [
+              0.1524239,
+              51.4561609
+            ],
+            [
+              0.1524157,
+              51.4561324
+            ],
+            [
+              0.1520542,
+              51.4561733
+            ],
+            [
+              0.1519131,
+              51.4556879
+            ],
+            [
+              0.151884,
+              51.4556912
+            ],
+            [
+              0.1518463,
+              51.4555613
+            ]
+          ]
+        ]
+      },
+      "id": "way/455068144"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/456267660",
         "addr:city": "London",
         "addr:housenumber": "102",
@@ -13261,6 +16170,67 @@
         ]
       },
       "id": "way/462413027"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/469166070",
+        "addr:city": "London",
+        "addr:housenumber": "216",
+        "addr:postcode": "SW16 5HX",
+        "addr:street": "Rowan Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "retail",
+        "fhrs:id": "578964",
+        "name": "Lidl Streatham",
+        "operator": "Lidl UK GmbH",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.1385384,
+              51.4112223
+            ],
+            [
+              -0.1394526,
+              51.4114929
+            ],
+            [
+              -0.1396297,
+              51.41126
+            ],
+            [
+              -0.1391451,
+              51.4111166
+            ],
+            [
+              -0.1391849,
+              51.4110643
+            ],
+            [
+              -0.1390467,
+              51.4110234
+            ],
+            [
+              -0.1390094,
+              51.4110725
+            ],
+            [
+              -0.138718,
+              51.4109863
+            ],
+            [
+              -0.1385384,
+              51.4112223
+            ]
+          ]
+        ]
+      },
+      "id": "way/469166070"
     },
     {
       "type": "Feature",
@@ -13482,6 +16452,72 @@
         ]
       },
       "id": "way/492847908"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/520152560",
+        "addr:housenumber": "23",
+        "addr:postcode": "DA14 5HJ",
+        "addr:street": "Foots Cray High Street",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "yes",
+        "fhrs:id": "329532",
+        "name": "Lidl",
+        "opening_hours": "Mo-Sa 08:00-21:00; Su 10:00-16:00",
+        "operator": "Lidl",
+        "shop": "supermarket",
+        "source:addr": "FHRS Open Data"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.1188878,
+              51.4183607
+            ],
+            [
+              0.1192602,
+              51.4182144
+            ],
+            [
+              0.1193669,
+              51.4181721
+            ],
+            [
+              0.119453,
+              51.418259
+            ],
+            [
+              0.1195557,
+              51.4183627
+            ],
+            [
+              0.1195649,
+              51.4183719
+            ],
+            [
+              0.1196199,
+              51.41843
+            ],
+            [
+              0.1193035,
+              51.4185413
+            ],
+            [
+              0.1190728,
+              51.418533
+            ],
+            [
+              0.1188878,
+              51.4183607
+            ]
+          ]
+        ]
+      },
+      "id": "way/520152560"
     },
     {
       "type": "Feature",
@@ -13844,6 +16880,51 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/540747486",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "building": "commercial",
+        "name": "Aldi",
+        "name:fa": "لیدل",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.1062391,
+              51.506315
+            ],
+            [
+              0.1058475,
+              51.5059878
+            ],
+            [
+              0.1061372,
+              51.5058309
+            ],
+            [
+              0.1065422,
+              51.5061731
+            ],
+            [
+              0.1064,
+              51.5062399
+            ],
+            [
+              0.1062391,
+              51.506315
+            ]
+          ]
+        ]
+      },
+      "id": "way/540747486"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/544625583",
         "building": "yes",
         "name": "The Co-operative Food",
@@ -13930,6 +17011,51 @@
         ]
       },
       "id": "way/547395652"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/555320957",
+        "addr:city": "London",
+        "addr:housenumber": "Units 1-2",
+        "addr:postcode": "SE26 4PU",
+        "addr:street": "Bell Green Retail Park",
+        "addr:unit": "1-2",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "building": "retail",
+        "name": "Aldi",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0354727,
+              51.4319456
+            ],
+            [
+              -0.0354177,
+              51.431462
+            ],
+            [
+              -0.0348187,
+              51.4314885
+            ],
+            [
+              -0.0348732,
+              51.4319721
+            ],
+            [
+              -0.0354727,
+              51.4319456
+            ]
+          ]
+        ]
+      },
+      "id": "way/555320957"
     },
     {
       "type": "Feature",
@@ -14047,6 +17173,46 @@
         ]
       },
       "id": "way/575982856"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/584963107",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "retail",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0128308,
+              51.3753973
+            ],
+            [
+              -0.0129219,
+              51.3750825
+            ],
+            [
+              -0.0121656,
+              51.3750289
+            ],
+            [
+              -0.0120851,
+              51.3753102
+            ],
+            [
+              -0.0128308,
+              51.3753973
+            ]
+          ]
+        ]
+      },
+      "id": "way/584963107"
     },
     {
       "type": "Feature",
@@ -14189,6 +17355,109 @@
         ]
       },
       "id": "way/600840814"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/621494462",
+        "addr:city": "London",
+        "addr:country": "GB",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "shop",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.0932615,
+              51.4726375
+            ],
+            [
+              -0.0932859,
+              51.4728038
+            ],
+            [
+              -0.0935219,
+              51.4728389
+            ],
+            [
+              -0.0935843,
+              51.4728577
+            ],
+            [
+              -0.0935876,
+              51.4729783
+            ],
+            [
+              -0.0935861,
+              51.4730285
+            ],
+            [
+              -0.093585,
+              51.4730677
+            ],
+            [
+              -0.0937352,
+              51.4730702
+            ],
+            [
+              -0.0937432,
+              51.4730118
+            ],
+            [
+              -0.0937808,
+              51.4730101
+            ],
+            [
+              -0.0937848,
+              51.4729667
+            ],
+            [
+              -0.0938362,
+              51.4729791
+            ],
+            [
+              -0.0938664,
+              51.4729385
+            ],
+            [
+              -0.0937915,
+              51.4729149
+            ],
+            [
+              -0.0937781,
+              51.4727712
+            ],
+            [
+              -0.0937707,
+              51.4726108
+            ],
+            [
+              -0.0937124,
+              51.4726138
+            ],
+            [
+              -0.0935648,
+              51.4726216
+            ],
+            [
+              -0.0933878,
+              51.4726309
+            ],
+            [
+              -0.0932615,
+              51.4726375
+            ]
+          ]
+        ]
+      },
+      "id": "way/621494462"
     },
     {
       "type": "Feature",
@@ -14529,6 +17798,80 @@
         ]
       },
       "id": "way/679237767"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/686284552",
+        "addr:city": "Kent",
+        "addr:country": "GB",
+        "addr:housenumber": "301",
+        "addr:postcode": "DA17 6DF",
+        "addr:street": "Lower Road",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "yes",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/belvedere/station-road",
+        "fhrs:id": "620280",
+        "name": "Asda",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.1544526,
+              51.4919229
+            ],
+            [
+              0.1542825,
+              51.4911572
+            ],
+            [
+              0.154799,
+              51.4911127
+            ],
+            [
+              0.1548057,
+              51.4911431
+            ],
+            [
+              0.1554249,
+              51.4910898
+            ],
+            [
+              0.1555672,
+              51.4917302
+            ],
+            [
+              0.1551884,
+              51.4917628
+            ],
+            [
+              0.1552332,
+              51.4919648
+            ],
+            [
+              0.1549197,
+              51.4919918
+            ],
+            [
+              0.1548959,
+              51.4918847
+            ],
+            [
+              0.1544526,
+              51.4919229
+            ]
+          ]
+        ]
+      },
+      "id": "way/686284552"
     },
     {
       "type": "Feature",
@@ -14999,6 +18342,79 @@
         ]
       },
       "id": "way/772782385"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/795362838",
+        "addr:city": "Sutton",
+        "addr:country": "GB",
+        "addr:housenumber": "1",
+        "addr:postcode": "SM3 9HB",
+        "addr:street": "Stonecot Hill",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "building": "retail",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:phone": "+44 20 3409 3823",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/sutton/stonecot-hill",
+        "fhrs:id": "864152",
+        "name": "Asda",
+        "old_name": "The Woodstock",
+        "opening_hours:covid19": "Mo-Sa 08:00-22:00, Su 11:00-17:00",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.2113861,
+              51.385652
+            ],
+            [
+              -0.2116172,
+              51.3854258
+            ],
+            [
+              -0.2115723,
+              51.3854075
+            ],
+            [
+              -0.2115348,
+              51.3853922
+            ],
+            [
+              -0.2111453,
+              51.385233
+            ],
+            [
+              -0.2110054,
+              51.3853511
+            ],
+            [
+              -0.2108887,
+              51.3853038
+            ],
+            [
+              -0.2107727,
+              51.3854055
+            ],
+            [
+              -0.210885,
+              51.3854501
+            ],
+            [
+              -0.2113861,
+              51.385652
+            ]
+          ]
+        ]
+      },
+      "id": "way/795362838"
     },
     {
       "type": "Feature",
@@ -16634,6 +20050,47 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/243583757",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "operator": "Lidl",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.04804,
+          51.4252759
+        ]
+      },
+      "id": "node/243583757"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/243584788",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0262991,
+          51.4263195
+        ]
+      },
+      "id": "node/243584788"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/244445621",
         "addr:housename": "Brook House",
         "addr:housenumber": "386",
@@ -17291,6 +20748,36 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/387432650",
+        "addr:city": "Kent",
+        "addr:country": "GB",
+        "addr:housenumber": "13-15",
+        "addr:postcode": "DA6 8DZ",
+        "addr:street": "Crook Log",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/bexleyheath/13/15-crook-log",
+        "fhrs:id": "580849",
+        "name": "Asda",
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 10:00-16:00",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.130167,
+          51.4582491
+        ]
+      },
+      "id": "node/387432650"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/416381278",
         "addr:city": "London",
         "addr:housename": "Southside Shopping Centre",
@@ -17572,6 +21059,30 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/456384027",
+        "addr:city": "Beckenham",
+        "addr:housenumber": "135",
+        "addr:postcode": "BR3 1AG",
+        "addr:street": "High Street",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "name": "Lidl",
+        "phone": "+44 870 444 1234",
+        "shop": "supermarket",
+        "website": "https://www.lidl.co.uk/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0281585,
+          51.4066302
+        ]
+      },
+      "id": "node/456384027"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/467499196",
         "addr:city": "London",
         "addr:housenumber": "156",
@@ -17832,6 +21343,32 @@
         ]
       },
       "id": "node/587743078"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/610453006",
+        "addr:city": "London",
+        "addr:housename": "West 12 Shopping Centre",
+        "addr:housenumber": "114-125",
+        "addr:postcode": "W12 8PH",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "name": "Lidl",
+        "opening_hours": "Mo-Sa 08:00-22:00; Su 11:00-17:00",
+        "opening_hours:covid19": "open",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.218424,
+          51.50319
+        ]
+      },
+      "id": "node/610453006"
     },
     {
       "type": "Feature",
@@ -18860,6 +22397,24 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/1668630326",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.1190726,
+          51.4959114
+        ]
+      },
+      "id": "node/1668630326"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/1674575980",
         "brand": "Tesco Express",
         "brand:wikidata": "Q98456772",
@@ -19126,6 +22681,34 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/1887555582",
+        "addr:housenumber": "222-224",
+        "addr:postcode": "SW16 1BB",
+        "addr:street": "Streatham High Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "fhrs:authority": "Lambeth",
+        "fhrs:id": "483334",
+        "fhrs:inspectiondate": "2009-03-11",
+        "fhrs:rating": "5",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "opening_hours": "Mo-Sa 08:00-10:00; Su 11:00-17:00",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1295404,
+          51.4310026
+        ]
+      },
+      "id": "node/1887555582"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/1903122618",
         "addr:street": "King's Road",
         "amenity": "atm",
@@ -19161,6 +22744,28 @@
         ]
       },
       "id": "node/1932320588"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1940052292",
+        "addr:housenumber": "31",
+        "addr:postcode": "SM4 5LN",
+        "addr:street": "Aberconway Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "fhrs:id": "578966",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1937558,
+          51.4013351
+        ]
+      },
+      "id": "node/1940052292"
     },
     {
       "type": "Feature",
@@ -19261,6 +22866,36 @@
         ]
       },
       "id": "node/1973906691"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2003044289",
+        "entrance": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1956399,
+          51.3666554
+        ]
+      },
+      "id": "node/2003044289"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2003044293",
+        "entrance": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.195914,
+          51.3673879
+        ]
+      },
+      "id": "node/2003044293"
     },
     {
       "type": "Feature",
@@ -19642,6 +23277,33 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/2429828501",
+        "addr:city": "London",
+        "addr:housenumber": "33-35",
+        "addr:postcode": "SW17 0SP",
+        "addr:street": "Tooting High Street",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "fhrs:authority": "Wandsworth",
+        "fhrs:id": "892276",
+        "name": "Aldi",
+        "name:fa": "آلدی",
+        "shop": "supermarket",
+        "source": "survey;https://ratings.food.gov.uk/opendatafiles/fhrs532en-gb.xml"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1670376,
+          51.4288115
+        ]
+      },
+      "id": "node/2429828501"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/2437583466",
         "brand": "Little Waitrose",
         "brand:wikidata": "Q771734",
@@ -19854,6 +23516,29 @@
         ]
       },
       "id": "node/2562961407"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2563680049",
+        "addr:city": "London",
+        "addr:housenumber": "104-120",
+        "addr:postcode": "SE13 5PT",
+        "addr:street": "Lee High Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0052445,
+          51.4603852
+        ]
+      },
+      "id": "node/2563680049"
     },
     {
       "type": "Feature",
@@ -20430,6 +24115,28 @@
         ]
       },
       "id": "node/3223507050"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3230191330",
+        "addr:housenumber": "279-291",
+        "addr:postcode": "SW17 7BA",
+        "addr:street": "Balham High Road",
+        "alt_name": "LIDL Balham",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "name": "LIDL",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1581264,
+          51.4363025
+        ]
+      },
+      "id": "node/3230191330"
     },
     {
       "type": "Feature",
@@ -21579,6 +25286,24 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/4040270650",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0560473,
+          51.3680562
+        ]
+      },
+      "id": "node/4040270650"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/4071082475",
         "brand": "Sainsbury's Local",
         "brand:wikidata": "Q13218434",
@@ -21705,6 +25430,27 @@
         ]
       },
       "id": "node/4221394415"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4221818850",
+        "addr:city": "Penge",
+        "addr:street": "High Street",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "name": "Lidl",
+        "name:fa": "لیدل",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0512902,
+          51.4136447
+        ]
+      },
+      "id": "node/4221818850"
     },
     {
       "type": "Feature",
@@ -21923,6 +25669,32 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/4366145291",
+        "addr:city": "London",
+        "addr:housename": "Plough Lane Retail Park",
+        "addr:postcode": "SW17 0BW",
+        "addr:street": "Plough Lane",
+        "addr:unit": "Unit 1",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "fhrs:id": "1022850",
+        "name": "Lidl",
+        "shop": "supermarket",
+        "source:addr": "FHRS Open Data"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1849547,
+          51.4304194
+        ]
+      },
+      "id": "node/4366145291"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/4392553746",
         "addr:housenumber": "90",
         "addr:postcode": "SW19 6DA",
@@ -22076,6 +25848,30 @@
         ]
       },
       "id": "node/4663309124"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4703290333",
+        "addr:city": "London",
+        "addr:housenumber": "163",
+        "addr:street": "Balham High Road",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "name": "Aldi",
+        "name:fa": "آلدی",
+        "operator": "Aldi",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1523543,
+          51.4435987
+        ]
+      },
+      "id": "node/4703290333"
     },
     {
       "type": "Feature",
@@ -22594,6 +26390,24 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/5372752299",
+        "access": "customers",
+        "amenity": "bicycle_parking",
+        "capacity": "20",
+        "fee": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1644657,
+          51.4652374
+        ]
+      },
+      "id": "node/5372752299"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/5433746410",
         "addr:city": "Bexely",
         "addr:housename": "Blackfen Road",
@@ -22718,6 +26532,21 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/5844909903",
+        "amenity": "atm"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0261371,
+          51.4751978
+        ]
+      },
+      "id": "node/5844909903"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/5892620652",
         "addr:city": "Thornton Heath",
         "addr:housenumber": "26-28",
@@ -22760,6 +26589,30 @@
         ]
       },
       "id": "node/5910469867"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5916003255",
+        "addr:city": "London",
+        "addr:postcode": "SE7 7FR",
+        "addr:street": "Brocklebank Road",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "name": "Aldi",
+        "name:fa": "آلدی",
+        "opening_hours": "Mo-Sa 08:00-22:00; Su 11:00-17:00",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.022264,
+          51.4908652
+        ]
+      },
+      "id": "node/5916003255"
     },
     {
       "type": "Feature",
@@ -22933,6 +26786,36 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/6022819184",
+        "entrance": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1306161,
+          51.3762978
+        ]
+      },
+      "id": "node/6022819184"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6022819585",
+        "entrance": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1307817,
+          51.376396
+        ]
+      },
+      "id": "node/6022819585"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/6032700640",
         "addr:city": "Mitcham",
         "addr:housenumber": "32",
@@ -23026,6 +26909,56 @@
         ]
       },
       "id": "node/6121423493"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6143757027",
+        "addr:city": "Lewisham",
+        "addr:country": "GB",
+        "addr:housename": "Lindsay Court",
+        "addr:postcode": "SE13 7LL",
+        "addr:street": "Loampit Vale",
+        "addr:unit": "1,2",
+        "brand": "Asda",
+        "brand:wikidata": "Q297410",
+        "brand:wikipedia": "en:Asda",
+        "contact:facebook": "https://www.facebook.com/asda/",
+        "contact:twitter": "@asda",
+        "contact:website": "https://storelocator.asda.com/london/lewisham/unit-1-and-2-thurston-point",
+        "fhrs:id": "955826",
+        "level": "0",
+        "name": "Asda",
+        "operator": "Asda Stores Ltd",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0165929,
+          51.4651052
+        ]
+      },
+      "id": "node/6143757027"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6167219574",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "name": "Aldi",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1788224,
+          51.4159213
+        ]
+      },
+      "id": "node/6167219574"
     },
     {
       "type": "Feature",
@@ -23302,6 +27235,21 @@
         ]
       },
       "id": "node/6561914324"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6617652591",
+        "entrance": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0659224,
+          51.4923077
+        ]
+      },
+      "id": "node/6617652591"
     },
     {
       "type": "Feature",
@@ -23703,6 +27651,23 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/7299980025",
+        "door": "automatic",
+        "entrance": "main",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0261273,
+          51.4752376
+        ]
+      },
+      "id": "node/7299980025"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/7312928691",
         "brand": "The Co-operative Food",
         "brand:wikidata": "Q3277439",
@@ -23815,6 +27780,25 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/7476019327",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0247667,
+          51.4896884
+        ]
+      },
+      "id": "node/7476019327"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/7538954241",
         "door": "sliding",
         "entrance": "main"
@@ -23900,6 +27884,38 @@
         ]
       },
       "id": "node/7644671846"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7644689591",
+        "door": "sliding",
+        "entrance": "main"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2115348,
+          51.3853922
+        ]
+      },
+      "id": "node/7644689591"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7644689592",
+        "amenity": "atm",
+        "fee": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2115723,
+          51.3854075
+        ]
+      },
+      "id": "node/7644689592"
     },
     {
       "type": "Feature",
@@ -24058,6 +28074,26 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "node/7947493944",
+        "brand": "Aldi",
+        "brand:wikidata": "Q125054",
+        "brand:wikipedia": "en:Aldi",
+        "fixme": "Location no accurate",
+        "name": "Aldi",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1318874,
+          51.4259336
+        ]
+      },
+      "id": "node/7947493944"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "node/7962611368",
         "addr:city": "London",
         "addr:postcode": "E14 0SY",
@@ -24119,6 +28155,25 @@
         ]
       },
       "id": "node/8043350289"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8094461882",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1069023,
+          51.4222272
+        ]
+      },
+      "id": "node/8094461882"
     },
     {
       "type": "Feature",
@@ -24295,6 +28350,44 @@
         ]
       },
       "id": "node/8494592940"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8540965368",
+        "brand": "Lidl",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2154358,
+          51.4643108
+        ]
+      },
+      "id": "node/8540965368"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8577081916",
+        "addr:housenumber": "180-214",
+        "addr:street": "Upper Tooting Road",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "building": "yes",
+        "name": "Lidl",
+        "shop": "supermarket"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1648188,
+          51.4313677
+        ]
+      },
+      "id": "node/8577081916"
     }
   ]
 }

@@ -5,19 +5,19 @@ Pubs query:  Run in Overpass-turbo to export as geojson
 
 (node
   [amenity=pub]
-  (51.3276,-0.2369,
-    51.5173,0.1559);
+  (51.3276,-0.2369,51.5173,0.1559);
 way
   [amenity=pub]
-  (51.3276,-0.2369,
-    51.5173,0.1559);
+  (51.3276,-0.2369,51.5173,0.1559);
 rel
   [amenity=pub]
-  (51.3276,-0.2369,
-    51.5173,0.1559);
+  (51.3276,-0.2369,51.5173,0.1559);
 );
 (._;>;);
 out;
+
+  ({{bbox}});
+
 
 Need to use geopandas to convert them all to points before importing to layer?
 
@@ -26,11 +26,23 @@ Train station query: same as above, just change the tags
   railway=stop
 
 Shop:
-  shop=supermarket
-  brand~
+(
+  node[shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
+  node[shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
+  way [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
+  way [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
+  rel [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
+  rel [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Lidl|Asda"]({{bbox}});
+);
+(._;>;);
+out;
+
 
 Parks query:
   May be able to use the above strategy, but will need to tweak opacity since the bounding points of the parks build on each other.
   Can we do it with entrances?
     leisure=park
+
+
+
 
