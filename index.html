@@ -4,8 +4,8 @@
     <meta charset='utf-8' />
     <title>House Hunt</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-    <script src='osmtogeojson.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
     <style>
       body {
@@ -59,36 +59,8 @@
 
   <div class="map-overlay top">
     <div class="map-overlay-inner">
-      <label>Pub opacity: <span id="pub-opacity-slider-value">20%</span></label>
-      <input id="pub-opacity-slider" type="range" min="0" max="100" step="0" value="20">
-    </div>
-    <div class="map-overlay-inner">
-      <label>Pub proximity: <span id="pub-radius-slider-value">250 meters</span></label>
-      <input id="pub-radius-slider" type="range" min="0" max="2000" step="0" value="200">
-    </div>
-    <div class="map-overlay-inner">
-      <label>Station opacity: <span id="rail-opacity-slider-value">20%</span></label>
-      <input id="rail-opacity-slider" type="range" min="0" max="100" step="0" value="20">
-    </div>
-    <div class="map-overlay-inner">
-      <label>Station proximity: <span id="rail-radius-slider-value">500 meters</span></label>
-      <input id="rail-radius-slider" type="range" min="0" max="2000" step="0" value="500">
-    </div>
-    <div class="map-overlay-inner">
-      <label>Shop opacity: <span id="shop-opacity-slider-value">20%</span></label>
-      <input id="shop-opacity-slider" type="range" min="0" max="100" step="0" value="20">
-    </div>
-    <div class="map-overlay-inner">
-      <label>Shop proximity: <span id="shop-radius-slider-value">500 meters</span></label>
-      <input id="shop-radius-slider" type="range" min="0" max="2000" step="0" value="500">
-    </div>
-    <div class="map-overlay-inner">
-      <label>Park opacity: <span id="park-opacity-slider-value">20%</span></label>
-      <input id="park-opacity-slider" type="range" min="0" max="100" step="0" value="20">
-    </div>
-    <div class="map-overlay-inner">
-      <label>Park proximity: <span id="park-radius-slider-value">500 meters</span></label>
-      <input id="park-radius-slider" type="range" min="0" max="2000" step="0" value="500">
+      <label>Opacity: <span id="opacity-slider-value">20%</span></label>
+      <input id="opacity-slider" type="range" min="0" max="100" step="0" value="20"/>
     </div>
   </div>
  
@@ -114,8 +86,6 @@
       var layerName = name + '-point'
       var initialOpacity = opacitySlider.value
       var initialRadius = radiusSlider.value
-
-      var osmData = 
 
       map.addSource(name, {
         type: 'geojson',
@@ -172,51 +142,58 @@
       });
 
     }
+
+    function addToMapAsBufferFill(name, color, geoJsonUrl, opacitySlider, opacitySliderValue) {
+        var layerName = name + '-fill';
+        var initialOpacity = opacitySlider.value
+
+        let request = new XMLHttpRequest();
+        request.open('GET', geoJsonUrl);
+        request.responseType = 'json';
+        request.send()
+        request.onload = function() {
+          const sourceGeoJson = request.response;
+          var bufferGeoJson = turf.buffer(sourceGeoJson, 500, {units: 'meters'});
+          var union = turf.flatten(
+            bufferGeoJson.features.reduce((accumulator, currentValue) => turf.union(accumulator, currentValue)));
+          map.addSource(name, {
+            "type": "geojson",
+            "data": union
+          });
+          map.addLayer({
+            id: layerName,
+            type: "fill",
+            source: name,
+            minzoom: 10,
+            paint: {
+              'fill-color': color,
+              'fill-opacity': parseInt(initialOpacity, 10) / 100
+            }
+          }, 'waterway-label');
+
+          opacitySlider.addEventListener('input', function (e) {
+            map.setPaintProperty(
+              layerName,
+              'fill-opacity',
+              parseInt(e.target.value, 10) / 100
+            );
+      
+            // Value indicator
+            opacitySliderValue.textContent = e.target.value + '%';
+          });
+
+        }
+    }
+
  
     map.on('load', function() {
 
-      addLayerFromSourceWithListeners(
-        map,
-        "pubs",
-        "./pubCentroids.geojson",
-        'rgb(238, 175, 0)',
-        document.getElementById('pub-opacity-slider'),
-        document.getElementById('pub-opacity-slider-value'),
-        document.getElementById('pub-radius-slider'),
-        document.getElementById('pub-radius-slider-value')
-        );
-
-      addLayerFromSourceWithListeners(
-        map,
-        "rail",
-        "./railCentroids.geojson",
-        'rgb(254, 0, 0)',
-        document.getElementById('rail-opacity-slider'),
-        document.getElementById('rail-opacity-slider-value'),
-        document.getElementById('rail-radius-slider'),
-        document.getElementById('rail-radius-slider-value')
-        );
-
-      addLayerFromSourceWithListeners(
-        map,
-        "shops",
-        "./shopsCentroids.geojson",
-        'rgb(0, 0, 254)',
-        document.getElementById('shop-opacity-slider'),
-        document.getElementById('shop-opacity-slider-value'),
-        document.getElementById('shop-radius-slider'),
-        document.getElementById('shop-radius-slider-value')
-        );
-
-      addLayerFromSourceWithListeners(
-        map,
+      addToMapAsBufferFill(
         "parks",
-        "./parks_centroids.geojson",
         'rgb(0, 254, 0)',
-        document.getElementById('park-opacity-slider'),
-        document.getElementById('park-opacity-slider-value'),
-        document.getElementById('park-radius-slider'),
-        document.getElementById('park-radius-slider-value')
+        "./parks.geojson",
+        document.getElementById('opacity-slider'),
+        document.getElementById('opacity-slider-value'),
         );
 
     });
