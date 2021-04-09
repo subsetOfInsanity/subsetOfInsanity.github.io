@@ -78,7 +78,8 @@
           -0.048398,
           51.4422284
       ],
-      zoom: 15
+      zoom: 15,
+      minZoom:13
     });
 
     function addLayerFromSourceWithListeners(map, name, sourceFile, colour, opacitySlider, opacitySliderValue, radiusSlider, radiusSliderValue) {
@@ -153,7 +154,29 @@
         request.send()
         request.onload = function() {
           const sourceGeoJson = request.response;
-          var bufferGeoJson = turf.buffer(sourceGeoJson, 500, {units: 'meters'});
+          console.log(sourceGeoJson)
+          mb = map.getBounds();
+          console.log(mb)
+          var bb = turf.bboxPolygon([mb.getWest() - 0.02, mb.getSouth() - 0.02, mb.getEast() + 0.02, mb.getNorth() + 0.02]) //Add a buffer to the bbox
+          console.log(bb)
+          var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
+            if(f.geometry.type == "Polygon"){
+              return turf.booleanOverlap(f,bb)
+            } else if(f.geometry.type == "MultiPolygon"){
+              return f.geometry.coordinates.some(p => turf.booleanOverlap(p,bb))
+            } else if (f.geometry.type == "Point") {
+              return turf.booleanPointInPolygon(f, bb)
+            } else if (f.geometry.type == "MultiPoint") {
+              return f.geometry.coordinates.some(c => turf.booleanPointInPolygon(c, bb))
+            } else {
+              return true
+            }
+          }))
+          console.log(inBoundsFeatureCollection)
+          var bufferGeoJson = turf.buffer(inBoundsFeatureCollection, 500, {units: 'meters'});
+          //TODO:  Not sure bounds are restricted right.  test more
+          //TODO:  Clear
+
           var union = turf.flatten(
             bufferGeoJson.features.reduce((accumulator, currentValue) => turf.union(accumulator, currentValue)));
           map.addSource(name, {
@@ -185,13 +208,13 @@
         }
     }
 
- 
+
     map.on('load', function() {
 
       addToMapAsBufferFill(
-        "parks",
-        'rgb(0, 254, 0)',
-        "./parks.geojson",
+        "pubs",
+        'rgb(238, 175, 0)',
+        "./pubs.geojson",
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value'),
         );
