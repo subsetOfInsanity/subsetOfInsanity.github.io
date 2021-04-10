@@ -145,81 +145,94 @@
     }
 
     function addToMapAsBufferFill(name, color, geoJsonUrl, opacitySlider, opacitySliderValue) {
-        var layerName = name + '-fill';
-        var initialOpacity = opacitySlider.value
 
+      let registerListeners = function(sourceGeoJson) {
+        const parsedGeoJson = parseSource(sourceGeoJson)
+        map.on("load", function () {
+          addSourceAndLayer(parsedGeoJson, name, color, opacitySlider)          
+        })
+//        map.on("mouseevent", function () {
+//          clearLayer(name)
+//        })
+      }
+
+      fetchGeoJson(geoJsonUrl, registerListeners)
+
+    }
+
+    function fetchGeoJson(geoJsonUrl, onload) {
         let request = new XMLHttpRequest();
         request.open('GET', geoJsonUrl);
         request.responseType = 'json';
         request.send()
-        request.onload = function() {
-          const sourceGeoJson = request.response;
-          console.log(sourceGeoJson)
-          mb = map.getBounds();
-          console.log(mb)
-          var bb = turf.bboxPolygon([mb.getWest() - 0.02, mb.getSouth() - 0.02, mb.getEast() + 0.02, mb.getNorth() + 0.02]) //Add a buffer to the bbox
-          console.log(bb)
-          var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
-            if(f.geometry.type == "Polygon"){
-              return turf.booleanOverlap(f,bb)
-            } else if(f.geometry.type == "MultiPolygon"){
-              return f.geometry.coordinates.some(p => turf.booleanOverlap(p,bb))
-            } else if (f.geometry.type == "Point") {
-              return turf.booleanPointInPolygon(f, bb)
-            } else if (f.geometry.type == "MultiPoint") {
-              return f.geometry.coordinates.some(c => turf.booleanPointInPolygon(c, bb))
-            } else {
-              return true
-            }
-          }))
-          console.log(inBoundsFeatureCollection)
-          var bufferGeoJson = turf.buffer(inBoundsFeatureCollection, 500, {units: 'meters'});
-          //TODO:  Not sure bounds are restricted right.  test more
-          //TODO:  Clear
-
-          var union = turf.flatten(
-            bufferGeoJson.features.reduce((accumulator, currentValue) => turf.union(accumulator, currentValue)));
-          map.addSource(name, {
-            "type": "geojson",
-            "data": union
-          });
-          map.addLayer({
-            id: layerName,
-            type: "fill",
-            source: name,
-            minzoom: 10,
-            paint: {
-              'fill-color': color,
-              'fill-opacity': parseInt(initialOpacity, 10) / 100
-            }
-          }, 'waterway-label');
-
-          opacitySlider.addEventListener('input', function (e) {
-            map.setPaintProperty(
-              layerName,
-              'fill-opacity',
-              parseInt(e.target.value, 10) / 100
-            );
-      
-            // Value indicator
-            opacitySliderValue.textContent = e.target.value + '%';
-          });
-
-        }
+        request.onload = function() {onload(request.response)}
     }
 
+    function addSourceAndLayer(parsedGeoJson, name, color, opacitySlider, opacitySliderValue) {
+      let layerName = name + '-fill';
+      let initialOpacity = opacitySlider.value
+      map.addSource(name, {
+        "type": "geojson",
+        "data": parsedGeoJson
+      });
+      map.addLayer({
+        id: layerName,
+        type: "fill",
+        source: name,
+        minzoom: 10,
+        paint: {
+          'fill-color': color,
+          'fill-opacity': parseInt(initialOpacity, 10) / 100
+        }
+      }, 'waterway-label');
 
-    map.on('load', function() {
+      opacitySlider.addEventListener('input', function (e) {
+        map.setPaintProperty(
+          layerName,
+          'fill-opacity',
+          parseInt(e.target.value, 10) / 100
+        );
+  
+        // Value indicator
+        opacitySliderValue.textContent = e.target.value + '%';
+      });
+    }
 
-      addToMapAsBufferFill(
+    function parseSource(sourceGeoJson) {
+
+      console.log(sourceGeoJson)
+      mb = map.getBounds();
+      console.log(mb)
+      var bb = turf.bboxPolygon([mb.getWest() - 0.02, mb.getSouth() - 0.02, mb.getEast() + 0.02, mb.getNorth() + 0.02]) //Add a buffer to the bbox
+      console.log(bb)
+      var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
+        if(f.geometry.type == "Polygon"){
+          return turf.booleanOverlap(f,bb)
+        } else if(f.geometry.type == "MultiPolygon"){
+          return f.geometry.coordinates.some(p => turf.booleanOverlap(p,bb))
+        } else if (f.geometry.type == "Point") {
+          return turf.booleanPointInPolygon(f, bb)
+        } else if (f.geometry.type == "MultiPoint") {
+          return f.geometry.coordinates.some(c => turf.booleanPointInPolygon(c, bb))
+        } else {
+          return true
+        }
+      }))
+      console.log(inBoundsFeatureCollection)
+      var bufferGeoJson = turf.buffer(inBoundsFeatureCollection, 500, {units: 'meters'});
+
+      return turf.flatten(
+        bufferGeoJson.features.reduce((accumulator, currentValue) => turf.union(accumulator, currentValue)));
+
+    }
+
+    const [addPubs, removePubs] = addToMapAsBufferFill(
         "pubs",
         'rgb(238, 175, 0)',
         "./pubs.geojson",
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value'),
         );
-
-    });
 
 
   </script>
