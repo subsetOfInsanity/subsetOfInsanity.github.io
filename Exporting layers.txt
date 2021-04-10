@@ -3,15 +3,19 @@ Using Overpass api: https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Gu
 
 Pubs query:  Run in Overpass-turbo to export as geojson
 
+old broad bbox:   (51.3276,-0.2369,51.5173,0.1559);
+
+current restricted: (51.3988,-0.1023,51.4719,0.0215)
+
 (node
   [amenity=pub]
-  (51.3276,-0.2369,51.5173,0.1559);
+  (51.3988,-0.1023,51.4719,0.0215);
 way
   [amenity=pub]
-  (51.3276,-0.2369,51.5173,0.1559);
+  (51.3988,-0.1023,51.4719,0.0215);
 rel
   [amenity=pub]
-  (51.3276,-0.2369,51.5173,0.1559);
+  (51.3988,-0.1023,51.4719,0.0215);
 );
 (._;>;);
 out;
@@ -24,6 +28,19 @@ Need to use geopandas to convert them all to points before importing to layer?
 
 Train station query: same as above, just change the tags
   railway=stop
+(node
+  [railway~"stop|station"]
+  (51.3276,-0.2369,51.5173,0.1559);
+way
+  [railway~"stop|station"]
+  (51.3276,-0.2369,51.5173,0.1559);
+rel
+  [railway~"stop|station"]
+  (51.3276,-0.2369,51.5173,0.1559);
+);
+(._;>;);
+out;
+
 
 Shop:
 (

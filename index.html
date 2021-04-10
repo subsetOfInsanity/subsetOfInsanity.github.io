@@ -153,10 +153,12 @@
         map.on('boxzoomend', function() {
           console.log('A boxzoomend event occurred.');
         });
-        ["boxzoomend", 'dragend', "moveend", "rotateend", "zoomend"].forEach(eventType => {
+        //It looks like zoomend and dragend are redundant for this case to moveend.  Keep an eye out to debug
+        ["boxzoomend", "moveend", "rotateend"].forEach(eventType => {
           map.on(eventType, function () {
             console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
             map.getSource(name).setData(parseSource(sourceGeoJson))
+            console.log('Loaded data for source ' + name + ' due to eventType: ' + eventType)
           })
         })
       }
@@ -205,11 +207,11 @@
 
     function parseSource(sourceGeoJson) {
 
-      console.log(sourceGeoJson)
+//      console.log(sourceGeoJson)
       mb = map.getBounds();
-      console.log(mb)
+//      console.log(mb)
       var bb = turf.bboxPolygon([mb.getWest() - 0.02, mb.getSouth() - 0.02, mb.getEast() + 0.02, mb.getNorth() + 0.02]) //Add a buffer to the bbox
-      console.log(bb)
+//      console.log(bb)
       var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
         if(f.geometry.type == "Polygon"){
           return turf.booleanOverlap(f,bb)
@@ -223,7 +225,7 @@
           return true
         }
       }))
-      console.log(inBoundsFeatureCollection)
+//      console.log(inBoundsFeatureCollection)
       var bufferGeoJson = turf.buffer(inBoundsFeatureCollection, 500, {units: 'meters'});
 
       return turf.flatten(
@@ -235,6 +237,14 @@
         "pubs",
         'rgb(238, 175, 0)',
         "./pubs.geojson",
+        document.getElementById('opacity-slider'),
+        document.getElementById('opacity-slider-value')
+        );
+
+    addToMapAsBufferFill(
+        "rail",
+        'rgb(254, 0, 0)',
+        "./rail.geojson",
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value')
         );
