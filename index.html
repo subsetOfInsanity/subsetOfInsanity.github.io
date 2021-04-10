@@ -147,13 +147,18 @@
     function addToMapAsBufferFill(name, color, geoJsonUrl, opacitySlider, opacitySliderValue) {
 
       let registerListeners = function(sourceGeoJson) {
-        const parsedGeoJson = parseSource(sourceGeoJson)
         map.on("load", function () {
-          addSourceAndLayer(parsedGeoJson, name, color, opacitySlider)          
+          addSourceAndLayer(parseSource(sourceGeoJson), name, color, opacitySlider)          
         })
-//        map.on("mouseevent", function () {
-//          clearLayer(name)
-//        })
+        map.on('boxzoomend', function() {
+          console.log('A boxzoomend event occurred.');
+        });
+        ["boxzoomend", 'dragend', "moveend", "rotateend", "zoomend"].forEach(eventType => {
+          map.on(eventType, function () {
+            console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
+            map.getSource(name).setData(parseSource(sourceGeoJson))
+          })
+        })
       }
 
       fetchGeoJson(geoJsonUrl, registerListeners)
@@ -226,12 +231,12 @@
 
     }
 
-    const [addPubs, removePubs] = addToMapAsBufferFill(
+    addToMapAsBufferFill(
         "pubs",
         'rgb(238, 175, 0)',
         "./pubs.geojson",
         document.getElementById('opacity-slider'),
-        document.getElementById('opacity-slider-value'),
+        document.getElementById('opacity-slider-value')
         );
 
 
