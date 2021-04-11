@@ -78,7 +78,7 @@
           -0.048398,
           51.4422284
       ],
-      zoom: 15,
+      zoom: 14,
       minZoom:13
     });
 
@@ -148,7 +148,7 @@
 
       let registerListeners = function(sourceGeoJson) {
         map.on("load", function () {
-          addSourceAndLayer(parseSource(sourceGeoJson), name, color, opacitySlider)          
+          addSourceAndLayer(parseSource(sourceGeoJson), name, color, opacitySlider, opacitySliderValue)          
         })
         map.on('boxzoomend', function() {
           console.log('A boxzoomend event occurred.');
@@ -207,16 +207,16 @@
 
     function parseSource(sourceGeoJson) {
 
-//      console.log(sourceGeoJson)
+      console.log(sourceGeoJson)
       mb = map.getBounds();
 //      console.log(mb)
       var bb = turf.bboxPolygon([mb.getWest() - 0.02, mb.getSouth() - 0.02, mb.getEast() + 0.02, mb.getNorth() + 0.02]) //Add a buffer to the bbox
-//      console.log(bb)
+      console.log(bb)
       var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
-        if(f.geometry.type == "Polygon"){
-          return turf.booleanOverlap(f,bb)
+        if (f.geometry.type == "Polygon"){
+          return turf.booleanOverlap(f,bb) || turf.booleanContains(bb, f)
         } else if(f.geometry.type == "MultiPolygon"){
-          return f.geometry.coordinates.some(p => turf.booleanOverlap(p,bb))
+          return f.geometry.coordinates.some(p => turf.booleanOverlap(p,bb) || turf.booleanContains(bb, turf.polygon(p)))
         } else if (f.geometry.type == "Point") {
           return turf.booleanPointInPolygon(f, bb)
         } else if (f.geometry.type == "MultiPoint") {
@@ -225,7 +225,7 @@
           return true
         }
       }))
-//      console.log(inBoundsFeatureCollection)
+      console.log(inBoundsFeatureCollection)
       var bufferGeoJson = turf.buffer(inBoundsFeatureCollection, 500, {units: 'meters'});
 
       return turf.flatten(
@@ -241,10 +241,18 @@
         document.getElementById('opacity-slider-value')
         );
 
-    addToMapAsBufferFill(
+     addToMapAsBufferFill(
         "rail",
         'rgb(254, 0, 0)',
         "./rail.geojson",
+        document.getElementById('opacity-slider'),
+        document.getElementById('opacity-slider-value')
+        );
+
+    addToMapAsBufferFill(
+        "shops",
+        'rgb(0, 0, 254)',
+        "./shops.geojson",
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value')
         );
