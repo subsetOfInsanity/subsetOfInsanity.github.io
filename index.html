@@ -101,11 +101,23 @@
         //It looks like zoomend and dragend are redundant for this case to moveend.  Keep an eye out to debug
         ["boxzoomend", "moveend"].forEach(eventType => {
           map.on(eventType, function () {
-            console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
-            map.getSource(name).setData(trimAndUnion(bufferGeoJson))
-            console.log('Loaded data for source ' + name + ' due to eventType: ' + eventType)
+            if(isDataLayerEnabled(name)) {
+              console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
+              map.getSource(name).setData(trimAndUnion(bufferGeoJson))
+              console.log('Loaded data for source ' + name + ' due to eventType: ' + eventType)
+            }
           })
         })
+        //Re-load data when radio layer selected:
+        document.querySelector('input[name="datalayer"][id="' + name + '"]').addEventListener("change", function(event) {
+          console.log('Radio triggered data re-load for ' + name)
+          var item = event.target.value;
+          if(item == name) {
+            console.log('Loading data for source ' + name + ' due to radio change')
+            map.getSource(name).setData(trimAndUnion(bufferGeoJson))
+            console.log('Loaded data for source ' + name + ' due to radio change')
+          }
+        });
       }
 
       fetchGeoJson(geoJsonUrl, registerListeners)
@@ -158,25 +170,24 @@
 
     function trimAndUnion(sourceGeoJson) {
 
-//      console.log(sourceGeoJson)
       mb = map.getBounds();
-//      console.log(mb)
       var bb = turf.bboxPolygon([mb.getWest(), mb.getSouth(), mb.getEast(), mb.getNorth()])
-//      console.log(bb)
       var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
           return turf.booleanOverlap(f,bb) || turf.booleanContains(bb, f)
       }))
-//      console.log(inBoundsFeatureCollection)
  
       return turf.flatten(
         inBoundsFeatureCollection.features.reduce((accumulator, currentValue) => turf.union(accumulator, currentValue)));
 
     }
 
-    function visibilityFromRadioFor(name) {
-      console.log(name)
+    function isDataLayerEnabled(name) {
       const selected = document.querySelector("input[type='radio'][name='datalayer']:checked").value;
-      if (selected == name){
+      return name == selected
+    }
+
+    function visibilityFromRadioFor(name) {
+      if (isDataLayerEnabled(name)){
         return "visible"
       } else {
         return 'none'
