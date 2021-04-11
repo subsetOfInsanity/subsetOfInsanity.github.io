@@ -209,7 +209,7 @@
 //      console.log(sourceGeoJson)
       mb = map.getBounds();
 //      console.log(mb)
-      var bb = turf.bboxPolygon([mb.getWest() - 0.02, mb.getSouth() - 0.02, mb.getEast() + 0.02, mb.getNorth() + 0.02]) //Add a buffer to the bbox
+      var bb = turf.bboxPolygon([mb.getWest(), mb.getSouth(), mb.getEast(), mb.getNorth()]) //Add a buffer to the bbox
 //      console.log(bb)
       var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
           return turf.booleanOverlap(f,bb) || turf.booleanContains(bb, f)
