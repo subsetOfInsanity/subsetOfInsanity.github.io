@@ -151,16 +151,13 @@
 
         map.on("load", function () {
           addSourceAndLayer(trimAndUnion(bufferGeoJson), name, color, opacitySlider, opacitySliderValue)          
-        })
-        map.on('boxzoomend', function() {
-//          console.log('A boxzoomend event occurred.');
         });
         //It looks like zoomend and dragend are redundant for this case to moveend.  Keep an eye out to debug
-        ["boxzoomend", "moveend", "rotateend"].forEach(eventType => {
+        ["boxzoomend", "moveend"].forEach(eventType => {
           map.on(eventType, function () {
-//            console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
+            console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
             map.getSource(name).setData(trimAndUnion(bufferGeoJson))
-//            console.log('Loaded data for source ' + name + ' due to eventType: ' + eventType)
+            console.log('Loaded data for source ' + name + ' due to eventType: ' + eventType)
           })
         })
       }
@@ -244,6 +241,14 @@
         "shops",
         'rgb(0, 0, 254)',
         "./shops.geojson",
+        document.getElementById('opacity-slider'),
+        document.getElementById('opacity-slider-value')
+        );
+
+    addToMapAsBufferFill(
+        "parks",
+        'rgb(0, 254, 0)',
+        "./parks.geojson",
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value')
         );
