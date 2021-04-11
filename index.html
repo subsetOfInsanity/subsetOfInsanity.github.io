@@ -147,18 +147,20 @@
     function addToMapAsBufferFill(name, color, geoJsonUrl, opacitySlider, opacitySliderValue) {
 
       let registerListeners = function(sourceGeoJson) {
+        var bufferGeoJson = turf.buffer(sourceGeoJson, 500, {units: 'meters'});
+
         map.on("load", function () {
-          addSourceAndLayer(parseSource(sourceGeoJson), name, color, opacitySlider, opacitySliderValue)          
+          addSourceAndLayer(trimAndUnion(bufferGeoJson), name, color, opacitySlider, opacitySliderValue)          
         })
         map.on('boxzoomend', function() {
-          console.log('A boxzoomend event occurred.');
+//          console.log('A boxzoomend event occurred.');
         });
         //It looks like zoomend and dragend are redundant for this case to moveend.  Keep an eye out to debug
         ["boxzoomend", "moveend", "rotateend"].forEach(eventType => {
           map.on(eventType, function () {
-            console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
-            map.getSource(name).setData(parseSource(sourceGeoJson))
-            console.log('Loaded data for source ' + name + ' due to eventType: ' + eventType)
+//            console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
+            map.getSource(name).setData(trimAndUnion(bufferGeoJson))
+//            console.log('Loaded data for source ' + name + ' due to eventType: ' + eventType)
           })
         })
       }
@@ -205,31 +207,20 @@
       });
     }
 
-    function parseSource(sourceGeoJson) {
+    function trimAndUnion(sourceGeoJson) {
 
-      console.log(sourceGeoJson)
+//      console.log(sourceGeoJson)
       mb = map.getBounds();
 //      console.log(mb)
       var bb = turf.bboxPolygon([mb.getWest() - 0.02, mb.getSouth() - 0.02, mb.getEast() + 0.02, mb.getNorth() + 0.02]) //Add a buffer to the bbox
-      console.log(bb)
+//      console.log(bb)
       var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
-        if (f.geometry.type == "Polygon"){
           return turf.booleanOverlap(f,bb) || turf.booleanContains(bb, f)
-        } else if(f.geometry.type == "MultiPolygon"){
-          return f.geometry.coordinates.some(p => turf.booleanOverlap(p,bb) || turf.booleanContains(bb, turf.polygon(p)))
-        } else if (f.geometry.type == "Point") {
-          return turf.booleanPointInPolygon(f, bb)
-        } else if (f.geometry.type == "MultiPoint") {
-          return f.geometry.coordinates.some(c => turf.booleanPointInPolygon(c, bb))
-        } else {
-          return true
-        }
       }))
-      console.log(inBoundsFeatureCollection)
-      var bufferGeoJson = turf.buffer(inBoundsFeatureCollection, 500, {units: 'meters'});
-
+//      console.log(inBoundsFeatureCollection)
+ 
       return turf.flatten(
-        bufferGeoJson.features.reduce((accumulator, currentValue) => turf.union(accumulator, currentValue)));
+        inBoundsFeatureCollection.features.reduce((accumulator, currentValue) => turf.union(accumulator, currentValue)));
 
     }
 
