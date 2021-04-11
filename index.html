@@ -70,6 +70,10 @@
       <input type="radio" id="rail" name="datalayer" value="rail">
       <label for="rail">Rail</label>
     </div>
+    <div class="map-overlay-inner">
+      <label for="range">Range in meters:</label>
+      <input type="text" id="range" name="range" size="5" value="500">
+    </div>
   </div>
  
 
@@ -90,34 +94,44 @@
       minZoom:13
     });
 
-    function addToMapAsBufferFill(name, color, geoJsonUrl, opacitySlider, opacitySliderValue, visibility) {
+    function addToMapAsBufferFill(name, color, geoJsonUrl, opacitySlider, opacitySliderValue, radioInput, rangeInput) {
 
       let registerListeners = function(sourceGeoJson) {
-        var bufferGeoJson = turf.buffer(sourceGeoJson, 500, {units: 'meters'});
+
+        let bufferedGeoJson = turf.buffer(sourceGeoJson, rangeInput.value, {units: 'meters'});
+        const initialVisibility = visibilityFromRadioFor(name)
 
         map.on("load", function () {
-          addSourceAndLayer(trimAndUnion(bufferGeoJson), name, color, opacitySlider, opacitySliderValue, visibility)          
+          addSourceAndLayer(trimAndUnion(bufferedGeoJson), name, color, opacitySlider, opacitySliderValue, initialVisibility)
         });
         //It looks like zoomend and dragend are redundant for this case to moveend.  Keep an eye out to debug
         ["boxzoomend", "moveend"].forEach(eventType => {
           map.on(eventType, function () {
             if(isDataLayerEnabled(name)) {
               console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
-              map.getSource(name).setData(trimAndUnion(bufferGeoJson))
+              map.getSource(name).setData(trimAndUnion(bufferedGeoJson))
               console.log('Loaded data for source ' + name + ' due to eventType: ' + eventType)
             }
           })
         })
         //Re-load data when radio layer selected:
-        document.querySelector('input[name="datalayer"][id="' + name + '"]').addEventListener("change", function(event) {
+        radioInput.addEventListener("change", function(event) {
           console.log('Radio triggered data re-load for ' + name)
           var item = event.target.value;
           if(item == name) {
             console.log('Loading data for source ' + name + ' due to radio change')
-            map.getSource(name).setData(trimAndUnion(bufferGeoJson))
+            map.getSource(name).setData(trimAndUnion(bufferedGeoJson))
             console.log('Loaded data for source ' + name + ' due to radio change')
           }
         });
+        rangeInput.addEventListener("change", function(event) {
+          if(isDataLayerEnabled(name)) {
+            console.log('Loading data for source ' + name + ' due to range change')
+            bufferedGeoJson = turf.buffer(sourceGeoJson, event.target.value, {units: 'meters'})
+            map.getSource(name).setData(trimAndUnion(bufferedGeoJson))
+            console.log('Loaded data for source ' + name + ' due to range change')
+          }
+        })
       }
 
       fetchGeoJson(geoJsonUrl, registerListeners)
@@ -194,13 +208,18 @@
       }
     }
 
+    function radioInputFor(name) {
+      return document.querySelector('input[name="datalayer"][id="' + name + '"]')
+    }
+
     addToMapAsBufferFill(
         "pubs",
         'rgb(238, 175, 0)',
         "./pubs.geojson",
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value'),
-        visibilityFromRadioFor('pubs')
+        radioInputFor("pubs"),
+        document.getElementById('range')
         );
 
      addToMapAsBufferFill(
@@ -209,7 +228,8 @@
         "./rail.geojson",
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value'),
-        visibilityFromRadioFor('rail')
+        radioInputFor("rail"),
+        document.getElementById('range')
         );
 
     addToMapAsBufferFill(
@@ -218,7 +238,8 @@
         "./shops.geojson",
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value'),
-        visibilityFromRadioFor('shops')
+        radioInputFor("shops"),
+        document.getElementById('range')
         );
 
 //    addToMapAsBufferFill(
@@ -226,7 +247,9 @@
 //        'rgb(0, 254, 0)',
 //        "./parks.geojson",
 //        document.getElementById('opacity-slider'),
-//        document.getElementById('opacity-slider-value')
+//        document.getElementById('opacity-slider-value'),
+//        radioInputFor("pubs"),
+//        document.getElementById('range')
 //        );
 
     // When radio button changes hide all data layers except current checked
