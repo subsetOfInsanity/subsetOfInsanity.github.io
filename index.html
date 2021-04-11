@@ -62,6 +62,14 @@
       <label>Opacity: <span id="opacity-slider-value">20%</span></label>
       <input id="opacity-slider" type="range" min="0" max="100" step="0" value="20"/>
     </div>
+    <div class="map-overlay-inner">
+      <input type="radio" id="shops" name="datalayer" value="shops" checked>
+      <label for="shops">Shops</label>
+      <input type="radio" id="pubs" name="datalayer" value="pubs">
+      <label for="pubs">Pubs</label>
+      <input type="radio" id="rail" name="datalayer" value="rail">
+      <label for="rail">Rail</label>
+    </div>
   </div>
  
 
@@ -82,75 +90,13 @@
       minZoom:13
     });
 
-    function addLayerFromSourceWithListeners(map, name, sourceFile, colour, opacitySlider, opacitySliderValue, radiusSlider, radiusSliderValue) {
-
-      var layerName = name + '-point'
-      var initialOpacity = opacitySlider.value
-      var initialRadius = radiusSlider.value
-
-      map.addSource(name, {
-        type: 'geojson',
-        data: sourceFile
-      });
-
-      //add circle layer
-      map.addLayer({
-        id: layerName,
-        type: 'circle',
-        source: name,
-        minzoom: 10,
-        paint: {
-          //keep diameter of the circle at a distance in meters.
-          'circle-radius': {
-            stops: [
-              [0,0],
-              [24, metersToPixelsAtMaxZoom(initialRadius, 51.44)]
-            ],
-            base: 2
-          },
-          'circle-color': colour,
-          'circle-stroke-width': 0,
-          'circle-opacity': parseInt(initialOpacity, 10) / 100
-        }
-      }, 'waterway-label');
-
-      opacitySlider.addEventListener('input', function (e) {
-        map.setPaintProperty(
-          layerName,
-          'circle-opacity',
-          parseInt(e.target.value, 10) / 100
-        );
-  
-        // Value indicator
-        opacitySliderValue.textContent = e.target.value + '%';
-      });
-
-      radiusSlider.addEventListener('input', function (e) {
-        map.setPaintProperty(
-          layerName,
-          'circle-radius',
-          {
-            stops: [
-              [0,0],
-              [24, metersToPixelsAtMaxZoom(parseInt(e.target.value, 10), 51.44)]
-            ],
-            base: 2
-          }
-        );
-  
-        // Value indicator
-        radiusSliderValue.textContent = e.target.value + "meters" ;
-      });
-
-    }
-
-    function addToMapAsBufferFill(name, color, geoJsonUrl, opacitySlider, opacitySliderValue) {
+    function addToMapAsBufferFill(name, color, geoJsonUrl, opacitySlider, opacitySliderValue, visibility) {
 
       let registerListeners = function(sourceGeoJson) {
         var bufferGeoJson = turf.buffer(sourceGeoJson, 500, {units: 'meters'});
 
         map.on("load", function () {
-          addSourceAndLayer(trimAndUnion(bufferGeoJson), name, color, opacitySlider, opacitySliderValue)          
+          addSourceAndLayer(trimAndUnion(bufferGeoJson), name, color, opacitySlider, opacitySliderValue, visibility)          
         });
         //It looks like zoomend and dragend are redundant for this case to moveend.  Keep an eye out to debug
         ["boxzoomend", "moveend"].forEach(eventType => {
@@ -174,7 +120,7 @@
         request.onload = function() {onload(request.response)}
     }
 
-    function addSourceAndLayer(parsedGeoJson, name, color, opacitySlider, opacitySliderValue) {
+    function addSourceAndLayer(parsedGeoJson, name, color, opacitySlider, opacitySliderValue, visibility) {
       let layerName = name + '-fill';
       let initialOpacity = opacitySlider.value
       map.addSource(name, {
@@ -191,6 +137,12 @@
           'fill-opacity': parseInt(initialOpacity, 10) / 100
         }
       }, 'waterway-label');
+
+      map.setLayoutProperty(
+        layerName,
+        'visibility',
+        visibility
+      );
 
       opacitySlider.addEventListener('input', function (e) {
         map.setPaintProperty(
@@ -209,7 +161,7 @@
 //      console.log(sourceGeoJson)
       mb = map.getBounds();
 //      console.log(mb)
-      var bb = turf.bboxPolygon([mb.getWest(), mb.getSouth(), mb.getEast(), mb.getNorth()]) //Add a buffer to the bbox
+      var bb = turf.bboxPolygon([mb.getWest(), mb.getSouth(), mb.getEast(), mb.getNorth()])
 //      console.log(bb)
       var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
           return turf.booleanOverlap(f,bb) || turf.booleanContains(bb, f)
@@ -221,28 +173,41 @@
 
     }
 
-//    addToMapAsBufferFill(
-//        "pubs",
-//        'rgb(238, 175, 0)',
-//        "./pubs.geojson",
-//        document.getElementById('opacity-slider'),
-//        document.getElementById('opacity-slider-value')
-//        );
-//
-//     addToMapAsBufferFill(
-//        "rail",
-//        'rgb(254, 0, 0)',
-//        "./rail.geojson",
-//        document.getElementById('opacity-slider'),
-//        document.getElementById('opacity-slider-value')
-//        );
+    function visibilityFromRadioFor(name) {
+      console.log(name)
+      const selected = document.querySelector("input[type='radio'][name='datalayer']:checked").value;
+      if (selected == name){
+        return "visible"
+      } else {
+        return 'none'
+      }
+    }
+
+    addToMapAsBufferFill(
+        "pubs",
+        'rgb(238, 175, 0)',
+        "./pubs.geojson",
+        document.getElementById('opacity-slider'),
+        document.getElementById('opacity-slider-value'),
+        visibilityFromRadioFor('pubs')
+        );
+
+     addToMapAsBufferFill(
+        "rail",
+        'rgb(254, 0, 0)',
+        "./rail.geojson",
+        document.getElementById('opacity-slider'),
+        document.getElementById('opacity-slider-value'),
+        visibilityFromRadioFor('rail')
+        );
 
     addToMapAsBufferFill(
         "shops",
         'rgb(0, 0, 254)',
         "./shops.geojson",
         document.getElementById('opacity-slider'),
-        document.getElementById('opacity-slider-value')
+        document.getElementById('opacity-slider-value'),
+        visibilityFromRadioFor('shops')
         );
 
 //    addToMapAsBufferFill(
@@ -252,6 +217,28 @@
 //        document.getElementById('opacity-slider'),
 //        document.getElementById('opacity-slider-value')
 //        );
+
+    // When radio button changes hide all data layers except current checked
+    document.querySelectorAll('input[name="datalayer"]').forEach((elem) => {
+      var radioValues = Array.from(document.querySelectorAll('input[name="datalayer"]')).map(i => i.value)
+      elem.addEventListener("change", function(event) {
+        var item = event.target.value;
+        radioValues.forEach(v => {
+          if (v != item) {
+            map.setLayoutProperty(
+              v + '-fill',
+              'visibility',
+              'none'
+            );
+          }
+        });
+        map.setLayoutProperty(
+          item + '-fill',
+          'visibility',
+          'visible'
+        );
+      });
+    });
 
 
   </script>
