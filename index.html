@@ -70,6 +70,8 @@
       <label for="pubs">Pubs</label>
       <input type="radio" id="rail" name="datalayer" value="rail">
       <label for="rail">Rail</label>
+      <input type="radio" id="parks" name="datalayer" value="parks">
+      <label for="parks">Parks</label>
     </div>
     <div class="map-overlay-inner">
       <label for="range">Range in meters:</label>
@@ -155,6 +157,20 @@
         );
         (._;>;);
         out;`
+      return encodeAsOverpassQuery(query)
+    }
+
+    function parksQuery() {
+      const bounds = getBoundsForOverpass()
+      const query = `
+        [out:json];
+        (
+          way [leisure=park][access!=private][name]${bounds};
+          rel [leisure=park][access!=private][name]${bounds};
+        );
+        (._;>;);
+        out;
+      `
       return encodeAsOverpassQuery(query)
     }
 
@@ -330,7 +346,7 @@
         document.getElementById('range')
         );
 
-     addToMapAsBufferFill(
+    addToMapAsBufferFill(
         "rail",
         'rgb(254, 0, 0)',
         (callback) => fetchGeoJson(railQuery(), callback),
@@ -340,15 +356,15 @@
         document.getElementById('range')
         );
 
-//    addToMapAsBufferFill(
-//        "parks",
-//        'rgb(0, 254, 0)',
-//        "./parks.geojson",
-//        document.getElementById('opacity-slider'),
-//        document.getElementById('opacity-slider-value'),
-//        radioInputFor("pubs"),
-//        document.getElementById('range')
-//        );
+    addToMapAsBufferFill(
+        "parks",
+        'rgb(0, 254, 0)',
+        (callback) => fetchGeoJson(parksQuery(), callback),
+        document.getElementById('opacity-slider'),
+        document.getElementById('opacity-slider-value'),
+        radioInputFor("parks"),
+        document.getElementById('range')
+        );
 
     // When radio button changes hide all data layers except current checked
     document.querySelectorAll('input[name="datalayer"]').forEach((elem) => {

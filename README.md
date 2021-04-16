@@ -7,6 +7,7 @@ Any coloured area is within 500 meters of a useful shop.  Using the dialogs you 
 - Shops
 - Pubs
 - Rail Stations
+- Parks
 
 
 ### Shops layer
@@ -21,6 +22,8 @@ Any coloured area is within 500 meters of a useful shop.  Only counting these sh
  - Lidl
  - Asda
 
+### Parks layer
+Includes all named public parks.
 
 ## Features on deck:
 1. Extend to all locations using dynamic fetching of OSM data.
