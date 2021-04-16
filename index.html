@@ -5,6 +5,7 @@
     <title>House Hunt</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <script src='osmtogeojson.js'></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
     <style>
@@ -83,7 +84,8 @@
       meters / 0.004665 / Math.cos(latitude * Math.PI / 180);
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoic3Vic2V0b2ZpbnNhbml0eSIsImEiOiJja20yYXYxZWczNG5jMndwMzg5cWtubXc4In0.cVmPhSzqLjcpvQgwpAkiuA';
-    var map = new mapboxgl.Map({
+    //Trying to keep map as the only global variable
+    const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [
@@ -94,47 +96,144 @@
       minZoom:13
     });
 
-    function addToMapAsBufferFill(name, color, geoJsonUrl, opacitySlider, opacitySliderValue, radioInput, rangeInput) {
+    function getBoundsForOverpass() {
+      const mb = map.getBounds();
+      const distance = document.getElementById('range').value * 2
+      const topLeft     = turf.transformTranslate( turf.point([mb.getWest(), mb.getNorth()]), distance, 315, {units: 'meters'} )
+      const bottomRight = turf.transformTranslate( turf.point([mb.getEast(), mb.getSouth()]), distance, 135, {units: 'meters'} )
+      const south = bottomRight.geometry.coordinates[1]
+      const west = topLeft.geometry.coordinates[0]
+      const north = topLeft.geometry.coordinates[1]
+      const east = bottomRight.geometry.coordinates[0]
+      return `(${south}, ${west}, ${north}, ${east})`
+    }
 
-      let registerListeners = function(sourceGeoJson) {
+    function encodeAsOverpassQuery(query) {
+      return `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query.replace(/\s/g, ""))}`
+    }
 
-        let bufferedGeoJson = turf.buffer(sourceGeoJson, rangeInput.value, {units: 'meters'});
+    function shopsQuery() {
+      const bounds = getBoundsForOverpass()
+      //TODO: Debug to make sure M&S Simply food is caught.
+      const query = `
+        [out:json];
+        (
+          node[shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          node[shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          way [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          way [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          rel [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          rel [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+        );
+        (._;>;);
+        out;`
+      return encodeAsOverpassQuery(query)
+    }
+
+    function pubsQuery() {
+      const bounds = getBoundsForOverpass()
+      const query = `
+        [out:json];
+        (
+          node[amenity=pub]${bounds};
+          way[amenity=pub]${bounds};
+          rel[amenity=pub]${bounds};
+        );
+        (._;>;);
+        out;`
+      return encodeAsOverpassQuery(query)
+    }
+
+    function railQuery() {
+      const bounds = getBoundsForOverpass()
+      const query = `
+        [out:json];
+        (
+          node[railway~"^(stop|station)$"]${bounds};
+          way [railway~"^(stop|station)$"]${bounds};
+          rel [railway~"^(stop|station)$"]${bounds};
+        );
+        (._;>;);
+        out;`
+      return encodeAsOverpassQuery(query)
+    }
+
+    function bboxPolygon(mapBoxBBox) {
+      return turf.bboxPolygon([mapBoxBBox.getWest(), mapBoxBBox.getSouth(), mapBoxBBox.getEast(), mapBoxBBox.getNorth()])
+    }
+
+    function addToMapAsBufferFill(name, color, fetchLayerFn, opacitySlider, opacitySliderValue, radioInput, rangeInput) {
+
+      let registerListeners = function(sourceOsmJson) {
+
+        // volatile.  Used to see if we need to update on an event.
+        let prevBounds = bboxPolygon(map.getBounds())
+
+        function setData(data) {
+          map.getSource(name).setData(data)
+        }
+
+        function buffer(data) {
+          return turf.buffer(data, rangeInput.value, {units: 'meters'})
+        }
+
+        function setDataFromOsm() {
+          const bb = bboxPolygon(map.getBounds())
+          if (!turf.booleanContains(prevBounds, bb)) {
+            prevBounds = bb
+            console.log('Loading data for source ' + name)
+            fetchLayerFn((data) => {
+              setData(unionAll(buffer(osmtogeojson(data))))
+              console.log('Loaded data for source ' + name)
+            })
+          }
+        }
+
+        const sourceGeoJson = osmtogeojson(sourceOsmJson)
+        const bufferedGeoJson = unionAll(buffer(sourceGeoJson));
         const initialVisibility = visibilityFromRadioFor(name)
 
-        map.on("load", function () {
-          addSourceAndLayer(trimAndUnion(bufferedGeoJson), name, color, opacitySlider, opacitySliderValue, initialVisibility)
-        });
+        function loadThisLayer() {
+          addSourceAndLayer(bufferedGeoJson, name, color, opacitySlider, opacitySliderValue, initialVisibility)
+        }
+        if (map.loaded()) {
+          loadThisLayer()
+        } else {
+          map.on("load", loadThisLayer);
+        }
+
         //It looks like zoomend and dragend are redundant for this case to moveend.  Keep an eye out to debug
         ["boxzoomend", "moveend"].forEach(eventType => {
           map.on(eventType, function () {
             if(isDataLayerEnabled(name)) {
-              console.log('Loading data for source ' + name + ' due to eventType: ' + eventType)
-              map.getSource(name).setData(trimAndUnion(bufferedGeoJson))
-              console.log('Loaded data for source ' + name + ' due to eventType: ' + eventType)
+              setDataFromOsm()
             }
           })
         })
         //Re-load data when radio layer selected:
         radioInput.addEventListener("change", function(event) {
-          console.log('Radio triggered data re-load for ' + name)
           var item = event.target.value;
           if(item == name) {
-            console.log('Loading data for source ' + name + ' due to radio change')
-            map.getSource(name).setData(trimAndUnion(bufferedGeoJson))
-            console.log('Loaded data for source ' + name + ' due to radio change')
+            setDataFromOsm()
           }
         });
         rangeInput.addEventListener("change", function(event) {
           if(isDataLayerEnabled(name)) {
-            console.log('Loading data for source ' + name + ' due to range change')
-            bufferedGeoJson = turf.buffer(sourceGeoJson, event.target.value, {units: 'meters'})
-            map.getSource(name).setData(trimAndUnion(bufferedGeoJson))
-            console.log('Loaded data for source ' + name + ' due to range change')
+            setDataFromOsm()
           }
         })
       }
 
-      fetchGeoJson(geoJsonUrl, registerListeners)
+      if (isDataLayerEnabled(name)) {
+        //Don't request data for a label not yet enabled
+        fetchLayerFn(registerListeners)
+      } else {
+        //Instead provide empty osm json data
+        registerListeners({
+          version: '0.6',
+          elements: []
+        }) 
+      }
 
     }
 
@@ -143,7 +242,9 @@
         request.open('GET', geoJsonUrl);
         request.responseType = 'json';
         request.send()
-        request.onload = function() {onload(request.response)}
+        request.onload = function() {
+          onload(request.response)
+        }
     }
 
     function addSourceAndLayer(parsedGeoJson, name, color, opacitySlider, opacitySliderValue, visibility) {
@@ -182,17 +283,14 @@
       });
     }
 
-    function trimAndUnion(sourceGeoJson) {
-
-      mb = map.getBounds();
-      var bb = turf.bboxPolygon([mb.getWest(), mb.getSouth(), mb.getEast(), mb.getNorth()])
-      var inBoundsFeatureCollection = turf.featureCollection(sourceGeoJson.features.filter(f => {
-          return turf.booleanOverlap(f,bb) || turf.booleanContains(bb, f)
-      }))
- 
-      return turf.flatten(
-        inBoundsFeatureCollection.features.reduce((accumulator, currentValue) => turf.union(accumulator, currentValue)));
-
+    function unionAll(geoJson) {
+      //reduce fails on empty array, so skip if empty
+      if (geoJson.features.length > 0) {
+        return turf.flatten(
+          geoJson.features.reduce((accumulator, currentValue) => turf.union(accumulator, currentValue)));
+      } else {
+        return geoJson
+      }
     }
 
     function isDataLayerEnabled(name) {
@@ -213,9 +311,19 @@
     }
 
     addToMapAsBufferFill(
+        "shops",
+        'rgb(0, 0, 254)',
+        (callback) => fetchGeoJson(shopsQuery(), callback),
+        document.getElementById('opacity-slider'),
+        document.getElementById('opacity-slider-value'),
+        radioInputFor("shops"),
+        document.getElementById('range')
+        );
+
+    addToMapAsBufferFill(
         "pubs",
         'rgb(238, 175, 0)',
-        "./pubs.geojson",
+        (callback) => fetchGeoJson(pubsQuery(), callback),
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value'),
         radioInputFor("pubs"),
@@ -225,20 +333,10 @@
      addToMapAsBufferFill(
         "rail",
         'rgb(254, 0, 0)',
-        "./rail.geojson",
+        (callback) => fetchGeoJson(railQuery(), callback),
         document.getElementById('opacity-slider'),
         document.getElementById('opacity-slider-value'),
         radioInputFor("rail"),
-        document.getElementById('range')
-        );
-
-    addToMapAsBufferFill(
-        "shops",
-        'rgb(0, 0, 254)',
-        "./shops.geojson",
-        document.getElementById('opacity-slider'),
-        document.getElementById('opacity-slider-value'),
-        radioInputFor("shops"),
         document.getElementById('range')
         );
 
@@ -273,7 +371,6 @@
         );
       });
     });
-
 
   </script>
 </body>

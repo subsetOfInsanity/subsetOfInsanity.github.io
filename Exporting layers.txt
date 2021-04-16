@@ -44,12 +44,12 @@ out;
 
 Shop:
 (
-  node[shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
-  node[shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
-  way [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
-  way [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
-  rel [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
-  rel [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"](51.3276,-0.2369,51.5173,0.1559);
+  node[shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]({{bbox}});
+  node[shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]({{bbox}});
+  way [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]({{bbox}});
+  way [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]({{bbox}});
+  rel [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]({{bbox}});
+  rel [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]({{bbox}});
 );
 (._;>;);
 out;
@@ -67,6 +67,26 @@ Parks query:
 );
 (._;>;);
 out;
+
+
+
+(node[amenity=pub](51.3988,-0.1023,51.4719,0.0215););(._;>;);out;
+
+TODO:
+- Get data from overpass api dynamically
+  - Store query for each data layer
+  - Get bbox from map and move them out by twice (arbitrary guess) the radius specified.
+  - insert buffered bbox coords into the query
+  - URL sanitize query: Remove spaces and convert special chars
+  - Make request
+  - when returned, convert response to geojson with osmtogeojson
+  - Add buffer using turfjs
+  - merge buffered shapes using turfjs
+  - add layer if doesn't exist, otherwise setData.
+
+http://www.overpass-api.de/api/interpreter?data=%28node%5B%22amenity%22%3D%22pub%22%5D%2851%2E3988%2C%2D0%2E1023%2C51%2E4719%2C0%2E0215%29%3B%29%3B%28%2E%5F%3B%3E%3B%29%3Bout%3B%0A
+
+
 
 
 
