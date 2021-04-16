@@ -1,7 +1,7 @@
 # subsetOfInsanity.github.io
 Demo of map for help in house hunting by showing proximity to useful things Mapbox and OpenStreetmap Overpass API.
 
-##User Docs:
+## User Docs:
 
 Any coloured area is within 500 meters of a useful shop.  Using the dialogs you can change this radius, or change to display another layer showing one of:
 - Shops
@@ -9,7 +9,7 @@ Any coloured area is within 500 meters of a useful shop.  Using the dialogs you 
 - Rail Stations
 
 
-###Shops layer
+### Shops layer
 Any coloured area is within 500 meters of a useful shop.  Only counting these shops for these purposes:
  - Sainsbury
  - Tesco
@@ -22,7 +22,7 @@ Any coloured area is within 500 meters of a useful shop.  Only counting these sh
  - Asda
 
 
-##Features on deck:
+## Features on deck:
 1. Extend to all locations using dynamic fetching of OSM data.
 1. Parks layer. - Need to filter to useful parks.  Public, above a certain size?
 1. Showing details of things counted for circles
@@ -31,7 +31,7 @@ Any coloured area is within 500 meters of a useful shop.  Only counting these sh
 1. Allow custom filtering - mod the Overpass ql query
 
 
-##Dev Notes
+## Dev Notes
 
 Currently working to make the browser fetch data directly from Overpass API based on bounds of the Mapbox map.  Then we apply a buffer to the objects returned using Turf JS.  Then we union all the buffered objects, and display it as a fill layer.
 
