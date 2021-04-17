@@ -180,80 +180,116 @@
 
     function addToMapAsBufferFill(name, color, fetchLayerFn, opacitySlider, opacitySliderValue, radioInput, rangeInput) {
 
-      let registerListeners = function(sourceOsmJson) {
+      const layerName = name + '-fill';
+      // volatile.  Used to see if we need to update on an event.
+      let prevBounds = turf.bboxPolygon([-1,-1,-1,-1]) //Dummy value
+      let prevRange = 0
 
-        // volatile.  Used to see if we need to update on an event.
-        let prevBounds = bboxPolygon(map.getBounds())
-
-        function setData(data) {
-          map.getSource(name).setData(data)
-        }
-
-        function buffer(data) {
-          return turf.buffer(data, rangeInput.value, {units: 'meters'})
-        }
-
-        function setDataFromOsm() {
-          console.log('Loading data for source ' + name)
-          fetchLayerFn((data) => {
-            setData(unionAll(buffer(osmtogeojson(data))))
-            console.log('Loaded data for source ' + name)
-          })
-        }
-
-        function setDataFromOsmIfMoved() {
-          const bb = bboxPolygon(map.getBounds())
-          if (!turf.booleanContains(prevBounds, bb)) {
-            setDataFromOsm()
-            prevBounds = bb
-          }
-        }
-
-        const sourceGeoJson = osmtogeojson(sourceOsmJson)
-        const bufferedGeoJson = unionAll(buffer(sourceGeoJson));
-        const initialVisibility = visibilityFromRadioFor(name)
-
-        function loadThisLayer() {
-          addSourceAndLayer(bufferedGeoJson, name, color, opacitySlider, opacitySliderValue, initialVisibility)
-        }
-        if (map.loaded()) {
-          loadThisLayer()
+      function addSourceAndLayer() {
+        if (isDataLayerEnabled(name)) {
+          //Don't request data for a label not yet enabled
+          fetchLayerFn(addSourceAndLayerFromJson)
+          console.log(`Data layer ${name} enabled`)
+          prevBounds = bboxPolygon(map.getBounds())
+          prevRange = rangeInput.value
         } else {
-          map.on("load", loadThisLayer);
+          //Instead provide empty osm json data
+          addSourceAndLayerFromJson({
+            version: '0.6',
+            elements: []
+          }) 
         }
+      }
 
-        //It looks like zoomend and dragend are redundant for this case to moveend.  Keep an eye out to debug
-        ["boxzoomend", "moveend"].forEach(eventType => {
-          map.on(eventType, function () {
-            if(isDataLayerEnabled(name)) {
-              setDataFromOsmIfMoved()
-            }
-          })
-        })
-        //Re-load data when radio layer selected:
-        radioInput.addEventListener("change", function(event) {
-          var item = event.target.value;
-          if(item == name) {
-            setDataFromOsmIfMoved()
-          }
+      function addSourceAndLayerFromJson(sourceOsmJson) {
+
+        let initialOpacity = opacitySlider.value
+        map.addSource(name, {
+          "type": "geojson",
+          "data": unionAll(buffer(osmtogeojson(sourceOsmJson)))
         });
-        rangeInput.addEventListener("change", function(event) {
-          if(isDataLayerEnabled(name)) {
-            setDataFromOsm()
+        map.addLayer({
+          id: layerName,
+          type: "fill",
+          source: name,
+          minzoom: 10,
+          paint: {
+            'fill-color': color,
+            'fill-opacity': parseInt(initialOpacity, 10) / 100
           }
+        }, 'waterway-label');
+
+        map.setLayoutProperty(
+          layerName,
+          'visibility',
+          visibilityFromRadioFor(name)
+        );
+
+        console.log(`Added layer ${layerName} from source ${name}`)
+
+      }
+
+      if (map.loaded()) {
+        addSourceAndLayer()
+      } else {
+        map.on("load", addSourceAndLayer);
+      }
+
+      function setData(data) {
+        map.getSource(name).setData(data)
+      }
+
+      function buffer(data) {
+        return turf.buffer(data, rangeInput.value, {units: 'meters'})
+      }
+
+      function setDataFromOsm() {
+        console.log('Loading data for source ' + name)
+        fetchLayerFn((data) => {
+          setData(unionAll(buffer(osmtogeojson(data))))
+          prevBounds = bboxPolygon(map.getBounds())
+          prevRange = rangeInput.value
+          console.log('Loaded data for source ' + name)
         })
       }
 
-      if (isDataLayerEnabled(name)) {
-        //Don't request data for a label not yet enabled
-        fetchLayerFn(registerListeners)
-      } else {
-        //Instead provide empty osm json data
-        registerListeners({
-          version: '0.6',
-          elements: []
-        }) 
+      function setDataFromOsmIfViewChanged() {
+        const bb = bboxPolygon(map.getBounds())
+        if (!turf.booleanContains(prevBounds, bb)) {
+          setDataFromOsm()
+        }
       }
+
+      opacitySlider.addEventListener('input', function (e) {
+        map.setPaintProperty(
+          layerName,
+          'fill-opacity',
+          parseInt(e.target.value, 10) / 100
+        );
+        opacitySliderValue.textContent = e.target.value + '%';
+      });
+
+      //It looks like zoomend and dragend are redundant for this case to moveend.  Keep an eye out to debug
+      ["boxzoomend", "moveend"].forEach(eventType => {
+        map.on(eventType, function () {
+          if(isDataLayerEnabled(name)) {
+            setDataFromOsmIfViewChanged()
+          }
+        })
+      })
+      //Re-load data when radio layer selected:
+      radioInput.addEventListener("change", function(event) {
+        var item = event.target.value;
+        if(item == name) {
+          setDataFromOsmIfViewChanged()
+        }
+      });
+      rangeInput.addEventListener("change", function(event) {
+        if(isDataLayerEnabled(name)) {
+          setDataFromOsm()
+        }
+      })
+
 
     }
 
@@ -265,42 +301,6 @@
         request.onload = function() {
           onload(request.response)
         }
-    }
-
-    function addSourceAndLayer(parsedGeoJson, name, color, opacitySlider, opacitySliderValue, visibility) {
-      let layerName = name + '-fill';
-      let initialOpacity = opacitySlider.value
-      map.addSource(name, {
-        "type": "geojson",
-        "data": parsedGeoJson
-      });
-      map.addLayer({
-        id: layerName,
-        type: "fill",
-        source: name,
-        minzoom: 10,
-        paint: {
-          'fill-color': color,
-          'fill-opacity': parseInt(initialOpacity, 10) / 100
-        }
-      }, 'waterway-label');
-
-      map.setLayoutProperty(
-        layerName,
-        'visibility',
-        visibility
-      );
-
-      opacitySlider.addEventListener('input', function (e) {
-        map.setPaintProperty(
-          layerName,
-          'fill-opacity',
-          parseInt(e.target.value, 10) / 100
-        );
-  
-        // Value indicator
-        opacitySliderValue.textContent = e.target.value + '%';
-      });
     }
 
     function unionAll(geoJson) {

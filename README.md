@@ -26,7 +26,8 @@ Any coloured area is within 500 meters of a useful shop.  Only counting these sh
 Includes all named public parks.
 
 ## Features on deck:
-1. Extend to all locations using dynamic fetching of OSM data.
+1. [DONE]Extend to all locations using dynamic fetching of OSM data.
+1. Add loading notification for user while fetching and unioning data.
 1. Parks layer. - Need to filter to useful parks.  Public, above a certain size?
 1. Showing details of things counted for circles
 1. Re-center by location, url, etc.
