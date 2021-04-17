@@ -194,14 +194,18 @@
         }
 
         function setDataFromOsm() {
+          console.log('Loading data for source ' + name)
+          fetchLayerFn((data) => {
+            setData(unionAll(buffer(osmtogeojson(data))))
+            console.log('Loaded data for source ' + name)
+          })
+        }
+
+        function setDataFromOsmIfMoved() {
           const bb = bboxPolygon(map.getBounds())
           if (!turf.booleanContains(prevBounds, bb)) {
+            setDataFromOsm()
             prevBounds = bb
-            console.log('Loading data for source ' + name)
-            fetchLayerFn((data) => {
-              setData(unionAll(buffer(osmtogeojson(data))))
-              console.log('Loaded data for source ' + name)
-            })
           }
         }
 
@@ -222,7 +226,7 @@
         ["boxzoomend", "moveend"].forEach(eventType => {
           map.on(eventType, function () {
             if(isDataLayerEnabled(name)) {
-              setDataFromOsm()
+              setDataFromOsmIfMoved()
             }
           })
         })
@@ -230,7 +234,7 @@
         radioInput.addEventListener("change", function(event) {
           var item = event.target.value;
           if(item == name) {
-            setDataFromOsm()
+            setDataFromOsmIfMoved()
           }
         });
         rangeInput.addEventListener("change", function(event) {
