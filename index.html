@@ -91,8 +91,8 @@
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [
-          -0.048398,
-          51.4422284
+          0.9624173,
+          51.8698107
       ],
       zoom: 14,
       minZoom:13
@@ -120,12 +120,12 @@
       const query = `
         [out:json];
         (
-          node[shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
-          node[shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
-          way [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
-          way [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
-          rel [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
-          rel [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|Co-op|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          node[shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|[Cc][oO]-?[oO][pP]|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          node[shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|[Cc][oO]-?[oO][pP]|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          way [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|[Cc][oO]-?[oO][pP]|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          way [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|[Cc][oO]-?[oO][pP]|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          rel [shop~"supermarket|convenience"][name  ~ "Sainsbury|Tesco|[Cc][oO]-?[oO][pP]|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
+          rel [shop~"supermarket|convenience"][brand ~ "Sainsbury|Tesco|[Cc][oO]-?[oO][pP]|Budgens|Waitrose|M&S Foodhall|Aldi|Lidl|Asda"]${bounds};
         );
         (._;>;);
         out;`
